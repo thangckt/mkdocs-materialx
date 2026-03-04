@@ -56,6 +56,7 @@
   // Navigation tabs are hidden
   &[hidden] {
     pointer-events: none;
+    width: 0;
   }
 
   // Navigation tabs list
@@ -149,6 +150,81 @@
         transform 0ms 100ms,
         opacity 100ms;
       transform: translateY(50%);
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Overflow dropdown for navigation tabs (mimic Chrome bookmarks behaviour)
+// ---------------------------------------------------------------------------
+
+// Overflow trigger item in the tab list
+.md-tabs__item--overflow {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+// The trigger button – intentionally NOT .md-tabs__link to avoid
+// the entrance animation / transition-delay that class carries.
+.md-tabs__overflow-btn {
+  display: flex;
+  align-items: center;
+  height: px2rem(48px);
+  padding: 0 px2rem(8px);
+  background: none;
+  border: none;
+  color: var(--mx-topbar-fg);
+  font-size: px2rem(18px);
+  cursor: pointer;
+  opacity: 0.8;
+  user-select: none;
+  outline-color: var(--md-accent-fg-color);
+
+  &:is(:hover, :focus) {
+    opacity: 1;
+  }
+}
+
+// The dropdown panel – appended to <body>, positioned with position:fixed by JS
+.md-tabs__overflow-dropdown {
+  position: fixed;
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: px2rem(4px) 0;
+  background-color: var(--mx-topbar-bg);
+  -webkit-backdrop-filter: var(--mx-topbar-backdrop-filter);
+  backdrop-filter: var(--mx-topbar-backdrop-filter);
+  min-width: px2rem(160px);
+  box-shadow: 0 px2rem(4px) px2rem(16px) rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+
+  &--open {
+    display: block;
+  }
+
+  // Override list item styles inside the dropdown
+  .md-tabs__item {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-inline: 0;
+  }
+
+  // Override link styles inside the dropdown
+  .md-tabs__link {
+    display: block;
+    margin-top: 0;
+    padding: px2rem(10px) px2rem(16px);
+    opacity: 0.85;
+    white-space: nowrap;
+    font-size: px2rem(14px);
+    transition: none !important;
+
+    &:is(:hover, :focus) {
+      opacity: 1;
+      background-color: rgba(255, 255, 255, 0.15);
     }
   }
 }
