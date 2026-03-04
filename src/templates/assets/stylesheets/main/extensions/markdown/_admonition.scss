@@ -143,8 +143,7 @@ $admonitions: (
     &::before {
       position: absolute;
       inset-inline-start: px2rem(12px);
-      top: 50%;
-      margin-top: px2rem(-10px);
+      top: px2rem(10px);
       width: px2rem(20px);
       height: px2rem(20px);
       content: "";
