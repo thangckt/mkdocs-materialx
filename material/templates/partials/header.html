@@ -2,9 +2,9 @@
   This file was automatically generated - do not edit
 -#}
 {% set class = "md-header" %}
-{% if "navigation.tabs.sticky" in features %}
+{% if "navigation.tabs.sticky" in features and not "navigation.tabs.header" in features %}
   {% set class = class ~ " md-header--shadow md-header--lifted" %}
-{% elif "navigation.tabs" not in features %}
+{% elif "navigation.tabs" not in features or "navigation.tabs.header" in features %}
   {% set class = class ~ " md-header--shadow" %}
 {% endif %}
 <header class="{{ class }}" data-md-component="header">
@@ -34,6 +34,9 @@
         </div>
       </div>
     </div>
+    {% if "navigation.tabs.header" in features %}
+      {% include "partials/tabs.html" %}
+    {% endif %}
     {% if config.theme.palette %}
       {% if not config.theme.palette is mapping %}
         {% include "partials/palette.html" %}
@@ -65,7 +68,7 @@
       </div>
     {% endif %}
   </nav>
-  {% if "navigation.tabs.sticky" in features %}
+  {% if "navigation.tabs.sticky" in features and not "navigation.tabs.header" in features %}
     {% if "navigation.tabs" in features %}
       {% include "partials/tabs.html" %}
     {% endif %}
