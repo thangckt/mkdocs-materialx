@@ -285,12 +285,12 @@
 // to size to the widest topic text (max-content), which then drives the title.
 .md-header__inner:has(> .md-tabs) .md-header__title {
   flex: 0 0 auto;
-  width: max-content;
+  width: px2rem(240px);
   overflow: hidden;
 
   > .md-header__ellipsis {
     position: static;
-    width: max-content;
+    width: 100%;
     display: grid;
   }
 
