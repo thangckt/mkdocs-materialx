@@ -1,3 +1,14 @@
+mkdocs-materialx-10.1.0 (2026-03-07)
+
+- Fixed the version number matching bug for info plugin
+- Optimized user experience: 
+  - Adjusted the scope of scroll penetration prevention for the scrollfix container to mobile devices only
+  - Adjusted the top of the admonition icon
+  - Adjusted the color depth of the indentation guide
+- Adjusted the dependency configuration method: removed `requirements.txt` and migrated all dependency configurations to `pyproject.toml`
+- Optimized the build order in the Dockerfile to improve the utilization rate of Docker build cache, thereby enhancing build efficiency
+- Updated the template examples for date plugin
+
 mkdocs-materialx-10.0.9 (2026-02-20)
 
 - Added configurable styles for topbar, allow to set topbar background color in Liquid Glass theme, see [Topbar style](https://jaywhj.github.io/mkdocs-materialx/setup/changing-the-colors.html#topbar-style)
