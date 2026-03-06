@@ -171,40 +171,35 @@
 // 在桌面（screen）一直到更宽的屏幕 ，都应用这个逻辑
 @include break-from-device(screen) {
   @supports selector(.md-container:has(.md-sidebar)) {
-    .md-container {
-      // 当左侧可见（有 primary nav 或 blog post sidebar），右侧 toc 不可见时
-      &:has(.md-sidebar:is(.md-sidebar--primary, .md-sidebar--post):not([hidden])) {
-        &:not(:has(.md-sidebar.md-sidebar--secondary:not([hidden]))) {
-          .md-top {
-            margin-inline-start: calc(50% + var(--md-sidebar-primary-width) / 2);
-          }
-        }
-      }
-      // 当左侧不可见，右侧 toc 可见时
-      &:has(.md-sidebar.md-sidebar--secondary:not([hidden])) {
-        &:not(:has(.md-sidebar:is(.md-sidebar--primary, .md-sidebar--post):not([hidden]))) {
-          .md-top {
-            margin-inline-start: calc(50% - var(--md-sidebar-primary-width) / 2);
-          }
-        }
-      }
-    }
 
-    [dir="rtl"] .md-container {
-      &:has(.md-sidebar:is(.md-sidebar--primary, .md-sidebar--post):not([hidden])) {
-        &:not(:has(.md-sidebar.md-sidebar--secondary:not([hidden]))) {
+    // 方向系数
+    :root { --mx-dir: 1; }
+    [dir="rtl"] { --mx-dir: -1; }
+
+    .md-container {
+      // 当左侧存在 sidebar（primary 或 post），且右侧 TOC 不存在时
+      &:has(.md-sidebar--primary:not([hidden])),
+      &:has(.md-sidebar--post:not([hidden])) {
+        &:not(:has(.md-sidebar--secondary:not([hidden]))) {
           .md-top {
-            margin-inline-start: calc(50% - var(--md-sidebar-primary-width) / 2);
+            margin-inline-start: calc(
+              50% + var(--mx-dir) * var(--md-sidebar-primary-width) / 2
+            );
           }
         }
       }
-      &:has(.md-sidebar.md-sidebar--secondary:not([hidden])) {
-        &:not(:has(.md-sidebar:is(.md-sidebar--primary, .md-sidebar--post):not([hidden]))) {
+      // 只有右侧 TOC 时
+      &:has(.md-sidebar--secondary:not([hidden])) {
+        &:not(:has(.md-sidebar--primary:not([hidden])))
+        &:not(:has(.md-sidebar--post:not([hidden]))) {
           .md-top {
-            margin-inline-start: calc(50% + var(--md-sidebar-primary-width) / 2);
+            margin-inline-start: calc(
+              50% - var(--mx-dir) * var(--md-sidebar-primary-width) / 2
+            );
           }
         }
       }
+
     }
   }
 }
