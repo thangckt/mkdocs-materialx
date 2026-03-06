@@ -55,7 +55,6 @@ jobs:
           cache: pip
           cache-dependency-path: |
             pyproject.toml
-            requirements.txt
 
       - name: Set up build cache
         uses: actions/cache/restore@v4
