@@ -30,6 +30,20 @@
       }
     },
     {
+        "name": "Debug MkDocs Plugin",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "mkdocs",
+        "args": [
+            "build",
+            "--clean",
+            "-v"
+        ],
+        "cwd": "/Users/aaron/jaywhj.github.io",
+        "console": "integratedTerminal",
+        "justMyCode": true
+    },
+    {
       "name": "MkDocs server",
       "type": "python",
       "request": "launch",

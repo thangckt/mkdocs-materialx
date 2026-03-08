@@ -60,7 +60,7 @@
     display: flex;
     flex-direction: column;
     gap: px2rem(12px);
-    margin: 0 px2rem(12px) px2rem(24px);
+    margin: 0 px2rem(20px) px2rem(24px);
   }
 
   // Post metadata
@@ -79,6 +79,7 @@
 
   // Post navigation title @todo - generalize
   &__title {
+    padding: px2rem(10px) px2rem(20px);
     font-weight: 700;
     color: var(--md-default-fg-color--light);
   }
