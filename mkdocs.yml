@@ -233,17 +233,17 @@ nav:
       - Markdown Extensions: setup/extensions/python-markdown-extensions.md
   - Plugins:
     - plugins/index.md
+    - Tags: plugins/tags.md
     - Blog: plugins/blog.md
-    - Group: plugins/group.md
-    - Info: plugins/info.md
     - Meta: plugins/meta.md
+    - Search: plugins/search.md
+    - Social: plugins/social.md
     - Offline: plugins/offline.md
     - Optimize: plugins/optimize.md
     - Privacy: plugins/privacy.md
+    - Group: plugins/group.md
+    - Info: plugins/info.md
     # - Projects: plugins/projects.md
-    - Search: plugins/search.md
-    - Social: plugins/social.md
-    - Tags: plugins/tags.md
     # - Typeset: plugins/typeset.md
     - Requirements:
       - Image processing: plugins/requirements/image-processing.md
