@@ -1,4 +1,4 @@
-mkdocs-materialx-10.1.0 (2026-03-07)
+mkdocs-materialx-10.1.0 (2026-03-08)
 
 - Fixed the version number matching bug for info plugin
 - Fixed that back-to-top was not centered on the blog page
