@@ -184,6 +184,7 @@ other providers:
 - [:material-airballoon-outline: Fly.io][Flyio]
 - [:simple-netlify: Netlify][Netlify]
 - [:simple-scaleway: Scaleway][Scaleway]
+- [:simple-codeberg: Codeberg Pages][Codeberg Pages]
 
 </div>
 
@@ -195,4 +196,5 @@ other providers:
   [Flyio]: https://documentation.breadnet.co.uk/cloud/fly/mkdocs-on-fly/
   [Netlify]: https://deborahwrites.com/guides/deploy-host-mkdocs/deploy-mkdocs-material-netlify/
   [Scaleway]: https://www.scaleway.com/en/docs/tutorials/using-bucket-website-with-mkdocs/
+  [Codeberg Pages]: https://andre601.ch/blog/2023/11-05-using-codeberg-pages/
 
