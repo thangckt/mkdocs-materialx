@@ -1,3 +1,17 @@
+mkdocs-materialx-10.1.0 (2026-03-08)
+
+- Fixed the version number matching bug for info plugin
+- Fixed that back-to-top was not centered on the blog page
+- Fixed blog not showing return title in left sidebar on desktop
+- Optimized user experience: 
+  - Adjusted the scope of scroll penetration prevention for the scrollfix container to mobile devices only
+  - Adjusted the top value of the admonition icon so that it is always aligned with the top line
+  - Adjusted the color depth of the indentation guide
+  - When the TOC is empty, do not hide the "Show TOC" button, instead, display a text prompt in the TOC sidebar
+- Adjusted the dependency configuration method: removed `requirements.txt` and migrated all dependency configurations to `pyproject.toml`
+- Optimized the build order in the Dockerfile to improve the utilization rate of Docker build cache, thereby enhancing build efficiency
+- Updated the template examples for date plugin
+
 mkdocs-materialx-10.0.9 (2026-02-20)
 
 - Added configurable styles for topbar, allow to set topbar background color in Liquid Glass theme, see [Topbar style](https://jaywhj.github.io/mkdocs-materialx/setup/changing-the-colors.html#topbar-style)

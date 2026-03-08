@@ -35,18 +35,7 @@ MaterialX for MkDocs with:
 
         This will make sure that you don't accidentally [upgrade to the next
         major version], which may include breaking changes that silently corrupt
-        your site. Additionally, you can use `pip freeze` to create a lockfile,
-        so builds are reproducible at all times:
-
-        ```
-        pip freeze > requirements.txt
-        ```
-
-        Now, the lockfile can be used for installation:
-
-        ```
-        pip install -r requirements.txt
-        ```
+        your site. 
 
   [^2]:
     Note that improvements of existing features are sometimes released as

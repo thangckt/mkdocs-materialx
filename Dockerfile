@@ -31,11 +31,10 @@ ENV PYTHONDONTWRITEBYTECODE=1
 WORKDIR /tmp
 
 # Copy files necessary for build
-COPY material material
-COPY package.json package.json
 COPY pyproject.toml pyproject.toml
+COPY package.json package.json
 COPY README.md README.md
-COPY *requirements.txt ./
+COPY material material
 
 # Perform build and cleanup artifacts and caches
 RUN \
@@ -60,13 +59,10 @@ RUN \
 && \
   pip install --no-cache-dir --upgrade pip \
 && \
-  pip install --no-cache-dir . \
-&& \
   if [ "${WITH_PLUGINS}" = "true" ]; then \
-    pip install --no-cache-dir \
-      mkdocs-material[recommended] \
-      mkdocs-material[git] \
-      mkdocs-material[imaging]; \
+    pip install --no-cache-dir ".[recommended,git,imaging]"; \
+  else \
+    pip install --no-cache-dir .; \
   fi \
 && \
   if [ -e user-requirements.txt ]; then \
