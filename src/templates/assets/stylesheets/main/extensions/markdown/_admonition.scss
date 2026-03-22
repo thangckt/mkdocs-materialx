@@ -69,10 +69,10 @@ $admonitions: (
     font-size: px2rem(12.8px);
     color: var(--md-admonition-fg-color);
     background-color: var(--md-admonition-bg-color);
-    // border: px2rem(1.5px) solid $clr-blue-a200;
+    border: px2rem(1px) solid $clr-blue-a200;
     border-radius: px2rem(8px);
-    box-shadow: var(--md-shadow-z1);
-    transition: box-shadow 125ms;
+    // box-shadow: var(--md-shadow-z1);
+    // transition: box-shadow 125ms;
     page-break-inside: avoid;
 
     // [print]: Omit shadow as it may lead to rendering errors
@@ -169,19 +169,19 @@ $admonitions: (
 @each $name, $props in $admonitions {
   $tint: list.nth($props, 2);
 
-  // // Admonition flavour
-  // .md-typeset .admonition.#{$name} {
-  //   border-color: $tint;
+  // Admonition flavour
+  .md-typeset .admonition.#{$name} {
+    border-color: color.adjust($tint, $alpha: -0.7);
 
-  //   // Admonition on focus
-  //   &:focus-within {
-  //     box-shadow: 0 0 0 px2rem(4px) color.adjust($tint, $alpha: -0.9);
-  //   }
-  // }
+    // // Admonition on focus
+    // &:focus-within {
+    //   box-shadow: 0 0 0 px2rem(4px) color.adjust($tint, $alpha: -0.9);
+    // }
+  }
 
   // Admonition flavour title
   .md-typeset .#{$name} > .admonition-title {
-    background-color: color.adjust($tint, $alpha: -0.9);
+    background-color: color.adjust($tint, $alpha: -0.7);
 
     // Admonition icon
     &::before {
