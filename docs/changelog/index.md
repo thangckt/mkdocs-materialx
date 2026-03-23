@@ -10,7 +10,7 @@ icon: material/layers-triple-outline
 
 - Fixed the version number matching bug for info plugin
 - Fixed that back-to-top was not centered on the blog page
-- Fixed blog not showing return title in left sidebar on desktop
+- Fixed blog page not showing return title in left sidebar on desktop
 - Optimized user experience: 
   - Adjusted the scope of scroll penetration prevention for the scrollfix container to mobile devices only
   - Adjusted the top value of the admonition icon so that it is always aligned with the top line

@@ -32,6 +32,7 @@ from mkdocs.plugins import BasePlugin, event_priority
 from mkdocs.structure.pages import Page
 from mkdocs.utils.templates import TemplateContext
 
+from . import tag_name
 from .config import TagsConfig
 from .renderer import Renderer
 from .structure.listing.manager import ListingManager
@@ -139,6 +140,21 @@ class TagsPlugin(BasePlugin[TagsConfig]):
         # but not when it is built, for a better user experience
         if self.is_serve and self.config.shadow_on_serve:
             self.config.shadow = True
+
+        # Compatibility handling: When `tags_sort_by` is set 
+        # but `listings_tags_sort_by` is not explicitly configured, 
+        # `listings_tags_sort_by` will automatically inherit the value of `tags_sort_by`
+        if (
+            self.config.listings_tags_sort_by == tag_name
+            and self.config.tags_sort_by != tag_name
+        ):
+            self.config.listings_tags_sort_by = self.config.tags_sort_by
+
+        if (
+            self.config.listings_tags_sort_reverse is False
+            and self.config.tags_sort_reverse is True
+        ):
+            self.config.listings_tags_sort_reverse = True
 
     @event_priority(-50)
     def on_page_markdown(

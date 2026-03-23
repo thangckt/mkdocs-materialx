@@ -27,7 +27,7 @@ Open up a terminal and install MaterialX for MkDocs with:
 === "Pin"
 
     ```
-    pip install mkdocs-materialx==10.0.9
+    pip install mkdocs-materialx==10.1.0
     ```
 
 === "Upgrade"

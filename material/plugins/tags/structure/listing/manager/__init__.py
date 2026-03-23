@@ -45,6 +45,7 @@ from . import toc
 # -----------------------------------------------------------------------------
 # Classes
 # -----------------------------------------------------------------------------
+FENCE_RE = re.compile(r"^[ \t]*(`{3,}|~{3,})")
 
 class ListingManager:
     """
@@ -66,6 +67,17 @@ class ListingManager:
         self.config = config
         self.data = set()
         self.depth = depth
+
+        directive = config.listings_directive
+
+        # fast-path marker
+        self.marker = f"<!-- {directive}"
+
+        # directive parser
+        self.directive_re = re.compile(
+            rf"(<!--\s*{re.escape(directive)}(.*?)\s*-->)",
+            re.I | re.S,
+        )
 
     def __repr__(self) -> str:
         """
@@ -167,6 +179,10 @@ class ListingManager:
         """
         assert isinstance(markdown, str)
 
+        # fast-path
+        if self.marker not in markdown:
+            return markdown
+
         # Replace callback
         def replace(match: Match) -> str:
             config = self._resolve(page, match.group(2))
@@ -193,11 +209,39 @@ class ListingManager:
         # point for the anchor links we will generate after parsing all pages.
         # By using an hx headline, we can make sure that the injection point
         # will always be a child of the preceding headline.
-        directive = self.config.listings_directive
-        return re.sub(
-            r"(<!--\s*?{directive}(.*?)\s*-->)".format(directive = directive),
-            replace, markdown, flags = re.I | re.M | re.S
-        )
+        out = []
+        buffer = []
+        in_fence = False
+        fence_char = None
+        fence_len = 0
+
+        for line in markdown.splitlines(keepends=True):
+            m = FENCE_RE.match(line)
+            if m:
+                token = m.group(1)
+                if not in_fence:
+                    # flush normal buffer
+                    if buffer:
+                        text = "".join(buffer)
+                        out.append(self.directive_re.sub(replace, text))
+                        buffer.clear()
+                    in_fence = True
+                    fence_char = token[0]
+                    fence_len = len(token)
+                else:
+                    if token[0] == fence_char and len(token) >= fence_len:
+                        in_fence = False
+                out.append(line)
+                continue
+            if in_fence:
+                out.append(line)
+            else:
+                buffer.append(line)
+
+        if buffer:
+            text = "".join(buffer)
+            out.append(self.directive_re.sub(replace, text))
+        return "".join(out)
 
     def closest(self, mapping: Mapping) -> list[Listing]:
         """
