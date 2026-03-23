@@ -134,7 +134,7 @@ tags:
 ...
 ```
 
-The page will now render with those tags above the main headline and within the
+The page will now render with those tags at the bottom of the page and within the
 search preview, which now allows to __find pages by tags__.
 
 ??? question "How to set tags for an entire folder?"
@@ -299,7 +299,7 @@ plugins:
 
 ### Hiding tags on a page
 
-While the tags are rendered above the main headline, sometimes, it might be
+While the tags are rendered at the bottom of each page, sometimes, it might be
 desirable to hide them for a specific page, which can be achieved with the
 front matter `hide` property:
 

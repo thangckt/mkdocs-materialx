@@ -10,7 +10,7 @@
 
 ## What Difference
 
-For a more detailed description of the differences, see documentation: [Why MaterialX](https://jaywhj.github.io/mkdocs-materialx/differences.html)
+For a more detailed description of the differences, see documentation: [Why MaterialX](https://jaywhj.github.io/mkdocs-materialx/differences)
 
 <br />
 
@@ -39,13 +39,13 @@ For a more detailed description of the differences, see documentation: [Why Mate
 ## Key Update Highlights
 
 - Added the modern Liquid Glass theme, consistent with Zensical
-- Added the next-gen date and author plugin, see documentation: [Adding Document Dates and Authors](setup/adding-document-dates-authors.md)
-- Added the recent updates module, see documentation: [Adding Recent Updates Module](setup/adding-recent-updates-module.md)
+- Added the next-gen date and author plugin, see documentation: [Add document dates & authors](https://jaywhj.github.io/mkdocs-materialx/setup/adding-document-dates-authors)
+- Added the recent updates module, see documentation: [Add recent updates module](https://jaywhj.github.io/mkdocs-materialx/setup/adding-recent-updates-module)
 - Refactor the TOC for mobile, enabling seamless NAV and TOC experiences on mobile (Zensical has no TOC on mobile)
 - Perfectly fixed the issue where swipe events would penetrate when the drawer was active on mobile (Zensical & Material failed to fix)
 - Added indentation guide lines and active link accent color for TOC
 - Moved the "back-to-top" container to the bottom, aligning with intuitive proximity-based interaction logic
-- Allow to set topbar background color in Liquid Glass theme, see [Topbar style](setup/changing-the-colors.md#topbar-style)
+- Allow to set topbar background color in Liquid Glass theme, see [Topbar style](https://jaywhj.github.io/mkdocs-materialx/setup/changing-the-colors#topbar-style)
 
 ## Quick Start
 
