@@ -39,7 +39,7 @@
     display: inline-flex;
     flex-wrap: wrap;
     gap: px2em(8px);
-    margin-top: px2em(-2px);
+    margin-top: px2em(20px);
     margin-bottom: px2em(12px);
   }
 
@@ -90,8 +90,8 @@
     // Tag icon content
     &::before {
       display: inline-block;
-      width: 1.2em;
-      height: 1.2em;
+      width: 1em;
+      height: 1em;
       vertical-align: text-bottom;
       content: "";
       background-color: var(--md-default-fg-color--lighter);

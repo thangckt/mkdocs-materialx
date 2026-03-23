@@ -91,11 +91,9 @@ function renderSearchDocument(
         {document.tags && (
           <nav class="md-tags">
             {document.tags.map(tag => {
-              const type = tags
-                ? tag in tags
-                  ? `md-tag-icon md-tag--${tags[tag]}`
-                  : "md-tag-icon"
-                : ""
+              const type = tags && tag in tags
+                ? `md-tag-icon md-tag--${tags[tag]}`
+                : "md-tag-icon"
               return (
                 <span class={`md-tag ${type}`}>{tag}</span>
               )

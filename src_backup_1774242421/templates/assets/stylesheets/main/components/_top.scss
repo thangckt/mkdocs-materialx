@@ -1,0 +1,205 @@
+////
+/// Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
+///
+/// Permission is hereby granted, free of charge, to any person obtaining a
+/// copy of this software and associated documentation files (the "Software"),
+/// to deal in the Software without restriction, including without limitation
+/// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+/// and/or sell copies of the Software, and to permit persons to whom the
+/// Software is furnished to do so, subject to the following conditions:
+///
+/// The above copyright notice and this permission notice shall be included in
+/// all copies or substantial portions of the Software.
+///
+/// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+/// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+/// FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL
+/// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+/// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+/// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+/// DEALINGS
+////
+
+// ----------------------------------------------------------------------------
+// Rules
+// ----------------------------------------------------------------------------
+
+// Back-to-top container
+.md-top {
+  position: fixed;
+  bottom: px2rem(54px);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  margin-inline-start: 50%;
+  transform: translate(-50%, 0);
+  transition:
+    transform 125ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity   125ms;
+
+  // [print]: Hide back-to-top button
+  @media print {
+    display: none;
+  }
+
+  // Adjust for right-to-left languages
+  [dir="rtl"] & {
+    transform: translate(50%, 0);
+  }
+
+  // Wrapper around centered back-to-top button and side buttons
+  &__center {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  // Back-to-top button is hidden
+  &[hidden] {
+    pointer-events: none;
+    opacity: 0;
+    transition-duration: 0ms;
+    transform: translate(-50%, px2rem(4px));
+
+    // Adjust for right-to-left languages
+    [dir="rtl"] & {
+      transform: translate(50%, px2rem(4px));
+    }
+  }
+
+  // Individual buttons
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: px2rem(8px);
+    font-size: px2rem(14px);
+    color: var(--md-default-fg-color);
+    background-color: var(--md-default-fg-color--lightest);
+    backdrop-filter: blur(px2rem(8px));
+    border-radius: px2rem(8px);
+    outline: none;
+    box-shadow: var(--md-shadow-z2);
+    transition:
+      color            125ms,
+      background-color 125ms;
+
+    // Main back-to-top button (with text)
+    &--main {
+      width: auto;
+      max-width: calc(100vw - px2rem(180px)); // Dynamic width: 100vw - (2 * side_btn + 2 * gap + margins)
+      padding: px2rem(8px) px2rem(16px) px2rem(8px) px2rem(12px);
+
+      // Add spacing between icon and text for browsers that don't support gap
+      svg {
+        margin-inline-end: px2rem(8px);
+      }
+
+      // Text container
+      span {
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    // Button on focus/hover
+    &:is(:focus, :hover) {
+      color: var(--md-accent-bg-color);
+      background-color: var(--md-accent-fg-color);
+    }
+
+    // Inline icon
+    svg {
+      display: inline-block;
+      width: px2rem(18px);
+      height: px2rem(18px);
+      vertical-align: -0.5em;
+      fill: currentcolor;
+      flex-shrink: 0;
+
+      // Override for Lucide icons, which use strokes
+      &.lucide {
+        fill: transparent;
+        stroke: currentcolor;
+      }
+    }
+  }
+
+  // Side buttons attached to centered back-to-top button
+  &__side {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__side--nav {
+    left: px2rem(-70px);
+
+    @include break-from-device(screen) {
+      display: none;
+    }
+  }
+
+  &__side--toc {
+    right: px2rem(-70px);
+
+    @include break-from-device(tablet landscape) {
+      display: none;
+    }
+  }
+}
+
+// 在「平板横屏」这个宽度区间生效 （大约 960–1219px）
+@include break-at-device(tablet landscape) {
+  // 只在浏览器支持 :has() 选择器时生效
+  @supports selector(.md-container:has(.md-sidebar)) {
+    // 当右侧有 toc 侧栏时，把 .md-top 位置从「容器中心」调整为「正文中心」，向左挪半个 sidebar 宽度
+    .md-container:has(.md-sidebar.md-sidebar--secondary:not([hidden])) .md-top {
+      margin-inline-start: calc(50% - var(--md-sidebar-primary-width) / 2);
+    }
+
+    [dir="rtl"]
+    .md-container:has(.md-sidebar.md-sidebar--secondary:not([hidden])) .md-top {
+      margin-inline-start: calc(50% + var(--md-sidebar-primary-width) / 2);
+    }
+  }
+}
+
+// 在桌面（screen）一直到更宽的屏幕 ，都应用这个逻辑
+@include break-from-device(screen) {
+  @supports selector(.md-container:has(.md-sidebar)) {
+
+    // 方向系数
+    :root { --mx-dir: 1; }
+    [dir="rtl"] { --mx-dir: -1; }
+
+    .md-container {
+      // 当左侧存在 sidebar（primary 或 post），且右侧 TOC 不存在时
+      &:has(.md-sidebar--primary:not([hidden])),
+      &:has(.md-sidebar--post:not([hidden])) {
+        &:not(:has(.md-sidebar--secondary:not([hidden]))) {
+          .md-top {
+            margin-inline-start: calc(
+              50% + var(--mx-dir) * var(--md-sidebar-primary-width) / 2
+            );
+          }
+        }
+      }
+      // 只有右侧 TOC 时
+      &:has(.md-sidebar--secondary:not([hidden])) {
+        &:not(:has(.md-sidebar--primary:not([hidden])))
+        &:not(:has(.md-sidebar--post:not([hidden]))) {
+          .md-top {
+            margin-inline-start: calc(
+              50% - var(--mx-dir) * var(--md-sidebar-primary-width) / 2
+            );
+          }
+        }
+      }
+
+    }
+  }
+}
