@@ -186,6 +186,11 @@
               border-bottom: none;
             }
           }
+          &:not(:has(.md-nav__title))::after {
+            display: block;
+            padding: px2rem(20px);
+            content: '☕️';
+          }
         }
       }
 
