@@ -1,5 +1,24 @@
-#---- 1. Site config ----
+# Copyright (c) 2016-2025 Martin Donath <martin.donath@squidfunk.com>
 
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to
+# deal in the Software without restriction, including without limitation the
+# rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+# sell copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+# IN THE SOFTWARE.
+
+# Project information
 site_name: MaterialX
 site_url: https://jaywhj.github.io/mkdocs-materialx/
 site_author: Aaron Wang
@@ -8,30 +27,14 @@ site_description: >-
   Accessible to everyone, extremely easy to use. 
   Modern, lightweight, customizable, responsive.
 
+# Repository
 repo_name: jaywhj/mkdocs-materialx
 repo_url: https://github.com/jaywhj/mkdocs-materialx
 
+# Copyright
 copyright: Copyright &copy; 2016 - 2026 Aaron Wang
 
-# Additional configuration
-extra:
-  status:
-    new: Recently added
-    deprecated: Deprecated
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/jaywhj
-      name: GitHub
-    - icon: material/email
-      link: mailto:junewhj@qq.com
-      name: Email
-    - icon: fontawesome/brands/discord
-      link: https://discord.gg/cvTfge4AUy
-      name: Discord
-
-
-#---- 2. Theme ----
-
+# Configuration
 theme:
   name: materialx
   custom_dir: material/overrides
@@ -41,27 +44,25 @@ theme:
     - content.code.annotate
     - content.code.copy
     # - content.code.select
-    # - content.tabs.link
     - content.footnote.tooltips
+    # - content.tabs.link
     - content.tooltips
-
-    - navigation.tabs
-    # - navigation.tabs.sticky
-    # - navigation.top
-    # - navigation.tracking
+    # - header.autohide
     # - navigation.expand
+    - navigation.footer
     # - navigation.indexes
     # - navigation.instant
     # - navigation.instant.prefetch
     # - navigation.instant.progress
     # - navigation.prune
     - navigation.sections
-    - navigation.footer
-
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.top
+    # - navigation.tracking
     - search.highlight
     - search.share
     - search.suggest
-
     - toc.follow
     # - toc.integrate
 
@@ -85,19 +86,15 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to system preference
-
   font: false
   favicon: assets/favicon.png
   icon:
     logo: logo
     annotation: material/plus-circle-outline
 
-
-#---- 3. Plugins & Hooks ----
-
+# Plugins
 plugins:
   # - blog
-  # - tags
   - offline
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
@@ -120,9 +117,23 @@ hooks:
   - material/overrides/hooks/shortcodes.py
   - material/overrides/hooks/translations.py
 
+# Additional configuration
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/jaywhj
+      name: GitHub
+    - icon: material/email
+      link: mailto:junewhj@qq.com
+      name: Email
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/cvTfge4AUy
+      name: Discord
 
-#---- 4. Extensions ----
-
+# Extensions
 markdown_extensions:
   - abbr
   - admonition
@@ -131,7 +142,6 @@ markdown_extensions:
   - footnotes
   - md_in_html
   - toc:
-      toc_depth: 4
       permalink: true
   - pymdownx.arithmatex:
       generic: true
@@ -174,14 +184,11 @@ markdown_extensions:
   - pymdownx.tilde
 
 
-#---- 5. Page tree ----
-
 # use_directory_urls: false
-# exclude_docs: |
-#   /drafts/
 # not_in_nav: |
 #   /tutorials/**/*.md
 
+# Page tree
 nav:
   - Home: index.md
   - Get started:
@@ -190,6 +197,14 @@ nav:
     - Create your site: creating-your-site.md
     - Publish your site: publishing-your-site.md
     - Customization: customization.md
+    - Conventions: conventions.md
+    - Browser support: browser-support.md
+    # - Philosophy: philosophy.md
+    # - Alternatives: alternatives.md
+    - License: license.md
+    - Changelog:
+      - changelog/index.md
+      - How to upgrade: upgrade.md
   - Setup:
     - setup/index.md
     - Logo and icons: setup/changing-the-logo-and-icons.md
@@ -218,22 +233,22 @@ nav:
       - Markdown Extensions: setup/extensions/python-markdown-extensions.md
   - Plugins:
     - plugins/index.md
-    - Tags: plugins/tags.md
     - Blog: plugins/blog.md
+    - Group: plugins/group.md
+    - Info: plugins/info.md
     - Meta: plugins/meta.md
-    - Search: plugins/search.md
-    - Social: plugins/social.md
     - Offline: plugins/offline.md
     - Optimize: plugins/optimize.md
     - Privacy: plugins/privacy.md
-    - Group: plugins/group.md
-    - Info: plugins/info.md
     # - Projects: plugins/projects.md
+    - Search: plugins/search.md
+    - Social: plugins/social.md
+    - Tags: plugins/tags.md
     # - Typeset: plugins/typeset.md
     - Requirements:
       - Image processing: plugins/requirements/image-processing.md
       - Caching: plugins/requirements/caching.md
-  - Authoring:
+  - Reference:
     - reference/index.md
     - Admonitions: reference/admonitions.md
     - Annotations: reference/annotations.md
@@ -278,13 +293,3 @@ nav:
       - tutorials/social/custom.md
   # - Blog:
     # - blog/index.md
-
-  - System:
-    - Conventions: conventions.md
-    - Browser support: browser-support.md
-    # - Philosophy: philosophy.md
-    # - Alternatives: alternatives.md
-    - License: license.md
-    - Changelog:
-      - changelog/index.md
-      - How to upgrade: upgrade.md
