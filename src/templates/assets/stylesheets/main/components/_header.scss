@@ -184,6 +184,7 @@
     font-size: px2rem(18px);
     line-height: px2rem(48px);
     letter-spacing: -0.025em;
+    width: px2rem(280px);
 
     // Header title in active state, i.e. page title is visible
     &--active .md-header__topic {
@@ -261,6 +262,40 @@
   }
 }
 
-[data-mx-topbar]:not([data-mx-topbar="glass"]) .md-header {
+// Tabs embedded inside the header nav element (navigation.tabs.header feature).
+// Make the tabs a proper flex child and remove duplicate background/blur that
+// would obscure the glass effect.
+.md-header__inner > .md-tabs {
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  background-color: transparent;
+  -webkit-backdrop-filter: none;
   backdrop-filter: none;
+  box-shadow: none;
+  // Keep the tablet hide behaviour intact (inherited from .md-tabs)
+}
+
+// When tabs are embedded in the header, shrink the title to its text content
+// width so the tabs can consume all remaining space.
+//
+// The topic elements are position:absolute inside the ellipsis (required for
+// the slide transition), so the container cannot auto-size from them normally.
+// Making the ellipsis a grid with all topics in the same cell causes the grid
+// to size to the widest topic text (max-content), which then drives the title.
+.md-header__inner:has(> .md-tabs) .md-header__title {
+  flex: 0 0 auto;
+  width: px2rem(240px);
+  overflow: hidden;
+
+  > .md-header__ellipsis {
+    position: static;
+    width: 100%;
+    display: grid;
+  }
+
+  .md-header__topic {
+    position: static;
+    grid-area: 1 / 1 / 2 / 2;
+  }
 }
