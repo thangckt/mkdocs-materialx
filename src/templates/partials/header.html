@@ -90,12 +90,8 @@
     {% endif %}
 
     <!-- Button to open search modal -->
-    {% if "materialx/search" in config.plugins or "material/search" in config.plugins %}
-      {% if "materialx/search" in config.plugins %}
-        {% set search = config.plugins["materialx/search"] | attr("config") %}
-      {% else %}
-        {% set search = config.plugins["material/search"] | attr("config") %}
-      {% endif %}
+    {% if "materialx/search" in config.plugins %}
+      {% set search = config.plugins["materialx/search"] | attr("config") %}
 
       <!-- Check if search is actually enabled - see https://t.ly/DT_0V -->
       {% if search.enabled %}
