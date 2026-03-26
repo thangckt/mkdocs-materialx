@@ -66,7 +66,7 @@
     - Optimized the show/hide sensitivity of the "Back to top" container
     - Added indent guide lines and active link accent colors for the TOC
 - Added the modern Liquid Glass theme, consistent with Zensical
-- Allow to set topbar background color in Liquid Glass theme, see [Topbar style](https://jaywhj.github.io/mkdocs-materialx/setup/changing-the-colors#topbar-style)
+- Allows setting the topbar background color in the Liquid Glass theme to support backgrounds with different color schemes, see [Topbar style](https://jaywhj.github.io/mkdocs-materialx/setup/changing-the-colors#topbar-style)
 - For more details, see [Changelog](https://github.com/jaywhj/mkdocs-materialx/releases)
 
 <br />
