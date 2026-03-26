@@ -1,12 +1,78 @@
+<style>
+.faq {
+  border-radius: 8px;
+  border: 1px solid #d6d6d6;
+  background: #f3f3f3;
+  overflow: hidden;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 20px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-title {
+  line-height: 1.4;
+  margin-right: 10px;
+}
+.faq-arrow {
+  flex-shrink: 0;
+
+  width: 6px;
+  height: 6px;
+
+  border-right: 2px solid #9e9e9e;
+  border-bottom: 2px solid #9e9e9e;
+
+  transform: rotate(-45deg); /* 收起：向右 */
+  transition: transform 0.25s ease;
+}
+.faq-content {
+  padding: 0 20px;
+  color: #444;
+  background: white;
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.2s ease;
+}
+
+.faq[open] .faq-arrow {
+  transform: rotate(45deg);
+}
+.faq[open] .faq-content {
+  padding: 8px 20px;
+  max-height: 1200px;
+}
+</style>
+
 ## MaterialX
 
 <br />
 
 **MaterialX**, the next generation of mkdocs-material, build beautiful sites the way you already know and love, based on `mkdocs-material-9.7.1` and named `X`, it provides ongoing maintenance and updates. (since mkdocs-material will cease maintenance)
 
-<br />
-<details>
-  <summary>Why MaterialX</summary>
+<details class="faq">
+  <summary>
+    <span class="faq-title">Why MaterialX ?</span>
+    <span class="faq-arrow"></span>
+  </summary>
+  <div class="faq-content">
   <p>
     The MkDocs project is nearing its end due to personal issues involving its original author. He has ceased updates for MkDocs and intends to release a completely new 2.0 version as a replacement. However, this new version is entirely incompatible with the existing ecosystem. It is an entirely separate project that merely carries the MkDocs name, and an accidental upgrade will result in devastating damage.
   </p>
@@ -22,16 +88,10 @@
   <p>
     <strong>MaterialX</strong> preserves the <strong>rich features</strong> and <strong>stability</strong> of the mkdocs-material project, while delivering <strong>new features</strong> and <strong>broad compatibility</strong>, and will adopt the following brand-new vision and positioning.
   </p>
+  </div>
 </details>
-<br />
 
-## What Difference
-
-For a more detailed description of the differences, see documentation: [Why MaterialX](https://jaywhj.github.io/mkdocs-materialx/differences)
-
-<br />
-
-### Differences from Material
+## Differences from Material
 
 | Aspect              |          mkdocs-material           |                       MaterialX                   |
 | ------------------- |  --------------------------------  |  -----------------------------------------------  |
@@ -41,7 +101,7 @@ For a more detailed description of the differences, see documentation: [Why Mate
 | **Feature Updates** |      None (with legacy bugs)       | Bug fixes, new features, UX improvements<br />see [Changelog](https://github.com/jaywhj/mkdocs-materialx/releases) |
 
 
-### Differences from Zensical
+## Differences from Zensical
 
 | Aspect         |                    Zensical                  |                        MaterialX                  |
 | -------------- | -------------------------------------------- | ------------------------------------------------- |
