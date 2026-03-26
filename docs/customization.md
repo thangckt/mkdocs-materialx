@@ -15,7 +15,7 @@ necessary to preserve your brand's style.
 small tweaks to MaterialX for MkDocs, you can just add CSS and JavaScript files to
 the `docs` directory.
 
-  [MkDocs]: https://www.properdocs.org
+  [MkDocs]: https://www.mkdocs.org
 
 ### Additional CSS
 
@@ -88,7 +88,7 @@ extend the theme. MkDocs supports [theme extension], an easy way to override
 parts of MaterialX for MkDocs without forking from git. This ensures that you
 can update to the latest version more easily.
 
-  [theme extension]: https://www.properdocs.org/user-guide/customizing-your-theme/#using-the-theme-custom_dir
+  [theme extension]: https://www.mkdocs.org/user-guide/customizing-your-theme/#using-the-theme-custom_dir
 
 ### Setup and theme structure
 
@@ -163,8 +163,8 @@ assets may also be put in the `overrides` directory:
 └─ main.html                           # Default page
 ```
 
-  [custom_dir]: https://www.properdocs.org/user-guide/configuration/#custom_dir
-  [name]: https://www.properdocs.org/user-guide/configuration/#name
+  [custom_dir]: https://www.mkdocs.org/user-guide/configuration/#custom_dir
+  [name]: https://www.mkdocs.org/user-guide/configuration/#name
 
 ### Overriding partials
 

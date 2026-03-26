@@ -435,7 +435,7 @@ explain the remainder of the regular expression.[^4]
     multiple characters were never supported by
     [lunr's default tokenizer][default tokenizer].
 
-  [default value]: https://www.properdocs.org/user-guide/configuration/#separator
+  [default value]: https://www.mkdocs.org/user-guide/configuration/#separator
 
 #### Case changes
 

@@ -207,7 +207,7 @@ The following lines must be changed:
       - auto
     ```
 
-  [deprecated in MkDocs 1.2.0]: https://www.properdocs.org/about/release-notes/#backward-incompatible-changes-in-12
+  [deprecated in MkDocs 1.2.0]: https://www.mkdocs.org/about/release-notes/#backward-incompatible-changes-in-12
 
 ### Changes to `*.html` files { data-search-exclude }
 

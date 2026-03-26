@@ -173,4 +173,4 @@ CI=true INSIDERS=true mkdocs build
 ```
 
   [built-in group plugin]: ../plugins/group.md
-  [configuration inheritance]: https://www.properdocs.org/user-guide/configuration/#configuration-inheritance
+  [configuration inheritance]: https://www.mkdocs.org/user-guide/configuration/#configuration-inheritance
