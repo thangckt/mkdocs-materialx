@@ -38,7 +38,7 @@ For a more detailed description of the differences, see documentation: [Why Mate
 | **Latest Version**  |       mkdocs-material-9.7.1        | mkdocs-materialx-10.x <br />(based on mkdocs-material-9.7.1) |
 | **Usage**           | mkdocs.yml + theme name `material` | properdocs.yml + new theme name `materialx` <br />everything else is the same as with material |
 | **Current Status**  |     Stopped maintenance     |          Active maintenance and updates           |
-| **Feature Updates** |      None (with legacy bugs)       | Bug fixes, new features, UX improvements<br />see [Changelog](https://github.com/jaywhj/mkdocs-materialx/releases){target="_blank"} |
+| **Feature Updates** |      None (with legacy bugs)       | Bug fixes, new features, UX improvements<br />see [Changelog](https://github.com/jaywhj/mkdocs-materialx/releases) |
 
 
 ### Differences from Zensical
@@ -57,10 +57,10 @@ For a more detailed description of the differences, see documentation: [Why Mate
 
 ## MaterialX Update Highlights
 
-- Added next-generation date & author plugin, see: [Add document dates & authors](https://jaywhj.github.io/mkdocs-materialx/setup/adding-document-dates-authors){target="_blank"}
+- Added next-generation date & author plugin, see: [Add document dates & authors](https://jaywhj.github.io/mkdocs-materialx/setup/adding-document-dates-authors)
     - Completely resolved the underlying date & time infrastructure issues, enabling fully automated date handling with no manual date configuration required. 
     This includes: page date display / blog post dates / blog categorization by date / blog list sorting / sitemap.xml (SEO enhancement: lastmod) / RSS feeds / Recently Updated section / search ranking, and more
-- Added Recent Updated module, see: [Add recent updates module](https://jaywhj.github.io/mkdocs-materialx/setup/adding-recent-updates-module){target="_blank"}
+- Added Recent Updated module, see: [Add recent updates module](https://jaywhj.github.io/mkdocs-materialx/setup/adding-recent-updates-module)
     - Displays recently updated documents in descending order of update time, with dynamically refreshed list items
     - Supports multiple flexible layout styles (list, detail, grid)
     - Automatically generates document summaries (no manual configuration needed)
@@ -72,8 +72,8 @@ For a more detailed description of the differences, see documentation: [Why Mate
     - Optimized the show/hide sensitivity of the "Back to top" container
     - Added indent guide lines and active link accent colors for the TOC
 - Added the modern Liquid Glass theme, consistent with Zensical
-- Allow to set topbar background color in Liquid Glass theme, see [Topbar style](https://jaywhj.github.io/mkdocs-materialx/setup/changing-the-colors#topbar-style){target="_blank"}
-- For more details, see [Changelog](https://github.com/jaywhj/mkdocs-materialx/releases){target="_blank"}
+- Allow to set topbar background color in Liquid Glass theme, see [Topbar style](https://jaywhj.github.io/mkdocs-materialx/setup/changing-the-colors#topbar-style)
+- For more details, see [Changelog](https://github.com/jaywhj/mkdocs-materialx/releases)
 
 ## Quick Start
 
@@ -108,7 +108,7 @@ mkdocs serve --livereload -o
 ```
 <br />
 
-For detailed installation instructions, configuration options, and a demo, visit [jaywhj.github.io/mkdocs-materialx](https://jaywhj.github.io/mkdocs-materialx/){target="_blank"}
+For detailed installation instructions, configuration options, and a demo, visit [jaywhj.github.io/mkdocs-materialx](https://jaywhj.github.io/mkdocs-materialx/)
 
 <br />
 
