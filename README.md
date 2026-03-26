@@ -5,95 +5,9 @@
 
 **MaterialX**, the next generation of mkdocs-material, build beautiful sites the way you already know and love, based on `mkdocs-material-9.7.1` and named `X`, it provides ongoing maintenance and updates. (since mkdocs-material will cease maintenance)
 
-<style>
-/* ===== details 容器 ===== */
-details {
-  border-radius: 8px;
-  border: 1px solid #d6d6d6;
-  background: #f3f3f3;
-  overflow: hidden;
-
-  transition: border-color 0.25s ease, background 0.25s ease;
-}
-
-/* ===== summary ===== */
-details > summary {
-  list-style: none;
-  cursor: pointer;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-
-  display: flex;
-  align-items: center;
-
-  padding: 16px 20px;
-  font-weight: 700;
-  font-size: 16px;
-  color: #333;
-}
-
-/* 去掉默认箭头 */
-details > summary::-webkit-details-marker {
-  display: none;
-}
-
-/* 标题自动占满 */
-details > summary > *:first-child {
-  flex: 1;
-  min-width: 0;
-}
-
-/* ===== 自定义箭头（替代 .faq-arrow） ===== */
-details > summary::after {
-  content: "";
-  flex-shrink: 0;
-
-  width: 8px;
-  height: 8px;
-
-  border-right: 2px solid #9e9e9e;
-  border-bottom: 2px solid #9e9e9e;
-
-  transform: rotate(-45deg);
-  transition: transform 0.25s ease;
-  margin-left: 8px;
-}
-
-/* 展开状态箭头 */
-details[open] > summary::after {
-  transform: rotate(45deg);
-}
-
-/* ===== 内容区（假设 summary 后第一个 div） ===== */
-details > summary + * {
-  padding: 0 20px;
-  color: #444;
-  background: #fff;
-
-  max-height: 0;
-  overflow: hidden;
-
-  transition: max-height 0.3s ease, padding 0.2s ease;
-}
-
-/* 展开 */
-details[open] > summary + * {
-  padding: 8px 20px;
-  max-height: 1200px;
-}
-
-/* 分割线 */
-details[open] > summary {
-  border-bottom: 1px solid #e5e5e5;
-}
-</style>
-
-
 <details>
-  <summary>
-    <span>Why MaterialX ?</span>
-  </summary>
-  <div>
+  <summary> Why MaterialX ? </summary>
+  <br />
   <p>
     The MkDocs project is nearing its end due to personal issues involving its original author. He has ceased updates for MkDocs and intends to release a completely new 2.0 version as a replacement. However, this new version is entirely incompatible with the existing ecosystem. It is an entirely separate project that merely carries the MkDocs name, and an accidental upgrade will result in devastating damage.
   </p>
@@ -109,7 +23,6 @@ details[open] > summary {
   <p>
     <strong>MaterialX</strong> preserves the <strong>rich features</strong> and <strong>stability</strong> of the mkdocs-material project, while delivering <strong>new features</strong> and <strong>broad compatibility</strong>, and will adopt the following brand-new vision and positioning.
   </p>
-  </div>
 </details>
 
 ## Differences from Material
