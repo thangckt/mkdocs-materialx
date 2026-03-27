@@ -7,6 +7,10 @@ icon: material/folder-plus-outline
 After you've [installed] MaterialX, navigate to the target directory 
 where you want your project to be located in the terminal and execute the following command:
 
+!!! tip "Tip"
+
+    MaterialX supports both MkDocs and ProperDocs. (I recommend ProperDocs)
+
 === "MkDocs"
 
     ```
@@ -178,17 +182,25 @@ MkDocs includes a live preview server, so you can preview your changes as you
 write your documentation. The server will automatically rebuild the site upon
 saving. Start it with:
 
-``` sh
-mkdocs serve # (1)!
-```
+=== "MkDocs"
 
-1.  If you have a large documentation project, it might take minutes until
-    MkDocs has rebuilt all pages for you to preview. If you're only interested
-    in the current page, the [`--dirtyreload`][--dirtyreload] flag will make
-    rebuilds much faster:
-
+    ``` sh
+    mkdocs serve --livereload # (1)!
     ```
-    mkdocs serve --dirtyreload
+
+    1.  If you have a large documentation project, it might take minutes until
+        MkDocs has rebuilt all pages for you to preview. If you're only interested
+        in the current page, the [`--dirtyreload`][--dirtyreload] flag will make
+        rebuilds much faster:
+
+        ```
+        mkdocs serve --livereload --dirtyreload
+        ```
+
+=== "ProperDocs"
+
+    ``` sh
+    properdocs serve
     ```
 
 Point your browser to [localhost:8000][live preview] and you should see:
@@ -199,20 +211,22 @@ Point your browser to [localhost:8000][live preview] and you should see:
   [live preview]: http://localhost:8000
   [Creating your site]: assets/screenshots/creating-your-site.png
 
-Alternatively, use the following command for **automatic open and reload**:
-
-```
-mkdocs serve --livereload -o
-```
-
 ## Building your site
 
 When you're finished editing, you can build a static site from your Markdown
 files with:
 
-```
-mkdocs build
-```
+=== "MkDocs"
+
+    ``` sh
+    mkdocs build
+    ```
+
+=== "ProperDocs"
+
+    ``` sh
+    properdocs build
+    ```
 
 The contents of this directory make up your project documentation. There's no
 need for operating a database or server, as it is completely self-contained.
