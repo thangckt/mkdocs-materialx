@@ -9,7 +9,7 @@ where you want your project to be located in the terminal and execute the follow
 
 !!! tip "Tip"
 
-    MaterialX supports both MkDocs and ProperDocs. (I recommend ProperDocs)
+    MaterialX supports both MkDocs and [ProperDocs](https://github.com/ProperDocs/properdocs){target="_blank"} (I recommend ProperDocs).
 
 === "MkDocs"
 
