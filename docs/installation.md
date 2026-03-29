@@ -4,7 +4,7 @@ icon: octicons/desktop-download-24
 
 # Installation
 
-MaterialX for MkDocs is a powerful documentation framework:
+MaterialX is a powerful documentation framework:
 
 - Born for documents, yet beyond documents
 - Accessible to everyone, extremely easy to use
@@ -14,9 +14,9 @@ You can install it in the following ways.
 
 ## with pip
 
-MaterialX for MkDocs is published as a [Python package] and can be installed with `pip`, ideally by using a [virtual environment]. 
+MaterialX is published as a [Python package] and can be installed with `pip`, ideally by using a [virtual environment]. 
 
-Open up a terminal and install MaterialX for MkDocs with:
+Open up a terminal and install MaterialX with:
 
 === "Latest"
 
@@ -37,7 +37,7 @@ Open up a terminal and install MaterialX for MkDocs with:
     ```
 
 This will automatically install compatible versions of all dependencies:
-[MkDocs], [Markdown], [Pygments] and [Python Markdown Extensions]. MaterialX for MkDocs always strives to support the latest versions, so there's no need to install those packages separately.
+[MkDocs], [Markdown], [Pygments] and [Python Markdown Extensions]. MaterialX always strives to support the latest versions, so there's no need to install those packages separately.
 
   [Python package]: https://pypi.org/project/mkdocs-materialx/
   [virtual environment]: https://realpython.com/what-is-pip/#using-pip-in-a-python-virtual-environment

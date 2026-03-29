@@ -30,13 +30,13 @@
   // Form button
   .md-button {
     display: inline-block;
-    padding: px2em(10px) px2em(32px);
+    padding: px2em(8px) px2em(24px);
     font-weight: 700;
     color: var(--md-default-fg-color--light);
     text-decoration: none;
     cursor: pointer;
     background-color: var(--md-default-fg-color--lightest);
-    border-radius: px2rem(24px);
+    border-radius: px2rem(8px);
     transition:
       color            125ms,
       background-color 125ms,

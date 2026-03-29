@@ -4,22 +4,44 @@ icon: material/folder-plus-outline
 
 # Creating your site
 
-After you've [installed] MaterialX for MkDocs, you can bootstrap your project
-documentation using the `mkdocs` executable. Go to the directory where you want
-your project to be located and enter:
+After you've [installed] MaterialX, navigate to the target directory 
+where you want your project to be located in the terminal and execute the following command:
 
-```
-mkdocs new .
-```
+!!! tip "Tip"
+
+    MaterialX supports both MkDocs and [ProperDocs](https://github.com/ProperDocs/properdocs){target="_blank"} (I recommend ProperDocs).
+
+=== "MkDocs"
+
+    ```
+    mkdocs new .
+    ```
+
+=== "ProperDocs"
+
+    ```
+    properdocs new .
+    ```
 
 This will create the following structure:
 
-``` { .sh .no-copy }
-.
-├─ docs/
-│  └─ index.md
-└─ mkdocs.yml
-```
+=== "MkDocs"
+
+    ``` { .sh .no-copy }
+    .
+    ├─ docs/
+    │  └─ index.md
+    └─ mkdocs.yml
+    ```
+
+=== "ProperDocs"
+
+    ``` { .sh .no-copy }
+    .
+    ├─ docs/
+    │  └─ index.md
+    └─ properdocs.yml
+    ```
 
   [installed]: installation.md
 
@@ -27,7 +49,7 @@ This will create the following structure:
 
 ### Minimal configuration
 
-Simply set the `site_name` and add the following lines to `mkdocs.yml` to enable the theme:
+Simply set the `site_name` and add the following lines to `mkdocs.yml` / `properdocs.yml` to enable the theme:
 
 ``` yaml hl_lines="2-5"
 site_name: My site
@@ -42,9 +64,9 @@ your domain. This is not the case, for example, when [publishing to GitHub
 pages] - unless you use a custom domain. Another reason is that some of the
 plugins require the `site_url` to be set, so you should always do this.
 
-??? tip "Recommended: [configuration validation and auto-complete]"
+??? tip "Recommended: configuration validation and auto-complete"
 
-    In order to minimize friction and maximize productivity, MaterialX for MkDocs
+    In order to minimize friction and maximize productivity, MaterialX
     provides its own [schema.json][^1] for `mkdocs.yml`. If your editor supports
     YAML schema validation, it's definitely recommended to set it up:
 
@@ -160,17 +182,25 @@ MkDocs includes a live preview server, so you can preview your changes as you
 write your documentation. The server will automatically rebuild the site upon
 saving. Start it with:
 
-``` sh
-mkdocs serve # (1)!
-```
+=== "MkDocs"
 
-1.  If you have a large documentation project, it might take minutes until
-    MkDocs has rebuilt all pages for you to preview. If you're only interested
-    in the current page, the [`--dirtyreload`][--dirtyreload] flag will make
-    rebuilds much faster:
-
+    ``` sh
+    mkdocs serve --livereload # (1)!
     ```
-    mkdocs serve --dirtyreload
+
+    1.  If you have a large documentation project, it might take minutes until
+        MkDocs has rebuilt all pages for you to preview. If you're only interested
+        in the current page, the [`--dirtyreload`][--dirtyreload] flag will make
+        rebuilds much faster:
+
+        ```
+        mkdocs serve --livereload --dirtyreload
+        ```
+
+=== "ProperDocs"
+
+    ``` sh
+    properdocs serve
     ```
 
 Point your browser to [localhost:8000][live preview] and you should see:
@@ -181,20 +211,22 @@ Point your browser to [localhost:8000][live preview] and you should see:
   [live preview]: http://localhost:8000
   [Creating your site]: assets/screenshots/creating-your-site.png
 
-Alternatively, use the following command for **automatic open and reload**:
-
-```
-mkdocs serve --livereload -o
-```
-
 ## Building your site
 
 When you're finished editing, you can build a static site from your Markdown
 files with:
 
-```
-mkdocs build
-```
+=== "MkDocs"
+
+    ``` sh
+    mkdocs build
+    ```
+
+=== "ProperDocs"
+
+    ``` sh
+    properdocs build
+    ```
 
 The contents of this directory make up your project documentation. There's no
 need for operating a database or server, as it is completely self-contained.

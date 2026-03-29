@@ -19,21 +19,21 @@
       "smartStep": true
     },
     {
-      "name": "MkDocs",
+      "name": "ProperDocs",
       "type": "python",
       "request": "launch",
       "preLaunchTask": "Start and watch for changes",
-      "program": "venv/bin/mkdocs",
+      "program": "/Library/Frameworks/Python.framework/Versions/3.13/bin/properdocs",
       "args": ["build"],
       "env": {
         "PYTHONPATH": "."
       }
     },
     {
-        "name": "Debug MkDocs Plugin",
+        "name": "Debug ProperDocs Plugin",
         "type": "debugpy",
         "request": "launch",
-        "module": "mkdocs",
+        "module": "properdocs",
         "args": [
             "build",
             "--clean",
@@ -44,22 +44,22 @@
         "justMyCode": true
     },
     {
-      "name": "MkDocs server",
+      "name": "ProperDocs server",
       "type": "python",
       "request": "launch",
       "preLaunchTask": "Start and watch for changes",
-      "program": "venv/bin/mkdocs",
+      "program": "/Library/Frameworks/Python.framework/Versions/3.13/bin/properdocs",
       "args": ["serve", "--watch-theme"],
       "env": {
         "PYTHONPATH": "."
       }
     },
     {
-      "name": "MkDocs server (dirty)",
+      "name": "ProperDocs server (dirty)",
       "type": "python",
       "request": "launch",
       "preLaunchTask": "Start and watch for changes",
-      "program": "venv/bin/mkdocs",
+      "program": "/Library/Frameworks/Python.framework/Versions/3.13/bin/properdocs",
       "args": ["serve", "--watch-theme", "--dirtyreload"],
       "env": {
         "PYTHONPATH": "."
@@ -68,12 +68,12 @@
   ],
   "compounds": [
     {
-      "name": "Chrome + MkDocs server",
-      "configurations": ["Chrome", "MkDocs server"]
+      "name": "Chrome + ProperDocs server",
+      "configurations": ["Chrome", "ProperDocs server"]
     },
     {
-      "name": "Chrome + MkDocs server (dirty)",
-      "configurations": ["Chrome", "MkDocs server (dirty)"]
+      "name": "Chrome + ProperDocs server (dirty)",
+      "configurations": ["Chrome", "ProperDocs server (dirty)"]
     }
   ]
 }

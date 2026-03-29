@@ -107,11 +107,7 @@ plugins:
   - document-dates:
       type: timeago
       locale: en
-      exclude:
-        - index.md
-        - license.md
-        - '*/index.md'
-        - blog/*
+      exclude: ['index.md', 'license.md', '*/index.md', 'blog/*']
 
   - glightbox
 

@@ -417,16 +417,16 @@ You can also refer to the latest example file for free customization: [user.conf
 
 ### Template Variables
 
-You can use the following variables in the template to access the document's meta-info:
+You can use these variables in any template or plugin to access document metadata:
 
-- page.meta._mx.document_dates.dates.created
-- page.meta._mx.document_dates.dates.updated
-- page.meta._mx.document_dates.authors
+- page.meta.document_dates.dates.created
+- page.meta.document_dates.dates.updated
+- page.meta.document_dates.authors
 - config.extra.recently_updated_docs
 
 #### Set correct `lastmod` for sitemap
 
-You can set the correct `lastmod` for your site's `sitemap.xml` with the template variable `_mx.document_dates.dates.updated` so that search engines can better handle SEO and thus increase your site's exposure
+You can set the correct `lastmod` for your site's `sitemap.xml` with the template variable `document_dates.dates.updated` so that search engines can better handle SEO and thus increase your site's exposure
 
 Step: Download the sample template [sitemap.xml](https://github.com/jaywhj/mkdocs-document-dates/blob/main/templates/overrides/sitemap.xml), and override this path `docs/overrides/sitemap.xml`
 
@@ -486,6 +486,55 @@ You can specify an article cover in Front Matter using the field `cover` (suppor
 cover: assets/cat.jpg
 ---
 ```
+
+#### Summary Line Configuration
+
+The plugin intelligently parses article content and simply refine the summary without manual configuration. The number of summary lines can be configured separately for **grid** and **detail** views:
+
+```yaml hl_lines="9-11"
+plugins:
+
+  - document-dates:
+      type: timeago
+      exclude: ['index.md', '*/index.md', 'blog/*']
+      recently-updated:
+        limit: 10
+        exclude: ['index.md', 'tags.md', '*/index.md', 'blog/*']
+        summary_lines:
+          grid: 4
+          detail: 6
+```
+
+#### Reading Time Estimation
+
+The plugin intelligently analyzes article content, extracts valid information, and estimates readtime. It supports all major languages and mixed-language content:
+
+- CJK languages: Chinese, Japanese, Korean
+- Space-delimited languages: English, Spanish, French, German, Portuguese, Russian ...
+
+Calculation Rules:
+
+| Valid Element | Calculation Method | Notes |
+| --- | --- | --- |
+| CJK languages | 480 characters / min | Based on common industry standards |
+| Space-delimited languages | 240 words / min | Based on common industry standards |
+| Tables | 2s / row | Simple row-based estimation for variable-length content |
+| Fence blocks | 1s / row | Includes code blocks, text blocks, YAML blocks, etc. |
+| Math blocks | 4s / block | Rough estimation based on individual blocks |
+| Images | 2s / image | Typical for blog post images: 2~3 seconds per image |
+| Front Matter | Skipped | Generally not visible after rendering |
+| HTML blocks | Skipped | Images inside HTML are counted, other content ignored (Markdown-focused) |
+| Quotes & links | Skipped | Link text for href is generally not visible after rendering |
+| Other invalid characters | Skipped | For example, whitespace, blank lines, special symbols, markup characters, etc. |
+
+
+!!! tip "Estimation Rule Notes"
+
+    These rules cannot fully account for individual reading habits—reading speed varies by person, language, and content type. This is only a rough estimate designed to suit most users as closely as possible.
+
+    That said, this is still the most full-featured Markdown readtime parser I have seen publicly available. It supports all major languages while maintaining extremely high parsing performance. By comparison, readtime implementations in the mkdocs-material blog only perform simple word and image counting with no special handling for Markdown content. Its image readtime rules are also highly unreasonable (starting at 12 seconds per image and decreasing), and it does not support CJK languages.
+
+    To avoid discouraging clicks with overly long estimated times, the default values in this calculation logic are set conservatively.
 
 ### Localization Language
 
