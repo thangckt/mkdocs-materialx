@@ -63,8 +63,7 @@ Therefore, MaterialX will adhere to the following goals and principles:
 ## MaterialX Update Highlights
 
 - Added next-generation date & author plugin, see: [Adding Document Dates and Authors](setup/adding-document-dates-authors.md){target="_blank"}
-    - Completely resolved the underlying date & time infrastructure issues, enabling fully automated date handling with no manual date configuration required. 
-    This includes: page date display / blog post dates / blog categorization by date / blog list sorting / sitemap.xml (lastmod - SEO enhancement) / RSS feeds / Recently Updated section / search ranking, and more
+    - Completely resolved date and time infrastructure issues, enabling automatic date handling across the project. Manual date configuration is no longer required for any feature, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod for SEO improvements), RSS feeds, recently updated section, search ranking, and more
 - Added Recent Updated module, see: [Adding Recent Updates Module](setup/adding-recent-updates-module.md){target="_blank"}
     - Displays recently updated documents in descending order of update time, with dynamically refreshed list items
     - Supports multiple flexible layout styles (list, detail, grid)

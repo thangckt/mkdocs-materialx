@@ -6,6 +6,29 @@ icon: material/layers-triple-outline
 
 ## MaterialX
 
+### 10.1.1 <small>March 29, 2026</small> { id="10.1.1" }
+
+- Added support for ProperDocs
+- Date & time infrastructure
+    - Completely resolved date & time infrastructure issues, enabling automatic date handling across the project. Manual date configuration is no longer required for any feature, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod for SEO improvements), RSS feeds, recently updated section, search ranking, and more
+    - Added an override template for `sitemap.xml` that supports dynamically loading the exact lastmod to improve SEO, see [sitemap.xml
+](https://github.com/jaywhj/mkdocs-materialx/blob/master/src/templates/sitemap.xml){target="_blank"}
+    - No more manually specifying blog post dates
+    - These date values can be accessed via template variables in any template or plugin, see [Template Variables](../setup/adding-document-dates-authors.md#template-variables){target="_blank"}
+- Recently updated list
+    - Added high-performance readtime & summary parsers
+    - Added `readtime` and `tag` rendering, for readtime calculation details see [Reading-Time-Estimation](../setup/adding-document-dates-authors.md#reading-time-estimation){target="_blank"}
+    - Added line count configuration for `summary`, see [Summary-Line-Configuration](../setup/adding-document-dates-authors.md#summary-line-configuration){target="_blank"}
+    - Improved layout styling for mixed text and image content
+- Tags
+    - Fixed a bug in tag list parsing
+    - Improved compatibility for sorting of the tags index list
+    - Corrected the incorrect example for listings tags sorting
+    - Moved tags display position from top to bottom
+    - Enable icon for tags by default to lower usage barriers
+- Updated template variables and removed the `_mx` node
+- Fixed styling issues for admonition & button
+
 ### 10.1.0 <small>March 8, 2026</small> { id="10.1.0" }
 
 - Fixed the version number matching bug for info plugin

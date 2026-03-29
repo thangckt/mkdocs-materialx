@@ -50,11 +50,23 @@ The following configuration options are supported:
 
 <!-- md:option recently-updated.limit -->
 
-:   <!-- md:default `10` --> This option specifies the number of documents to be displayed.
+:   <!-- md:default 10 --> This option specifies the number of documents to be displayed.
 
 <!-- md:option recently-updated.exclude -->
 
 :   <!-- md:default none --> This option specifies a list of documents to be excluded, supporting unix shell-style wildcards,  such as `*`, `?`, `[]` etc.
+
+<!-- md:option recently-updated.summary_lines -->
+
+:   This option configures the number of rows displayed in the summary for the grid and detail views.
+
+    <!-- md:option recently-updated.summary_lines.grid -->
+
+    :   <!-- md:default 4 --> Default 4 lines
+
+    <!-- md:option recently-updated.summary_lines.detail -->
+
+    :   <!-- md:default 6 --> Default 6 lines
 
 ## Add to sidebar navigation
 
@@ -76,4 +88,22 @@ Use the field `cover` in Front Matter to specify the article cover (supports URL
 ---
 cover: assets/cat.jpg
 ---
+```
+
+## Summary Line Configuration
+
+The plugin intelligently parses article content and simply refine the summary without manual configuration. The number of summary lines can be configured separately for **grid** and **detail** views:
+
+```yaml hl_lines="9-11"
+plugins:
+
+  - document-dates:
+      type: timeago
+      exclude: ['index.md', '*/index.md', 'blog/*']
+      recently-updated:
+        limit: 10
+        exclude: ['index.md', 'tags.md', '*/index.md', 'blog/*']
+        summary_lines:
+          grid: 4
+          detail: 6
 ```

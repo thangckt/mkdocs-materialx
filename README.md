@@ -52,8 +52,7 @@
 ## MaterialX Update Highlights
 
 - Added next-generation date & author plugin, see: [Add document dates & authors](https://jaywhj.github.io/mkdocs-materialx/setup/adding-document-dates-authors)
-    - Completely resolved the underlying date & time infrastructure issues, enabling fully automated date handling with no manual date configuration required. 
-    This includes: page date display / blog post dates / blog categorization by date / blog list sorting / sitemap.xml (SEO enhancement: lastmod) / RSS feeds / Recently Updated section / search ranking, and more
+    - Completely resolved date & time infrastructure issues, enabling automatic date handling across the project. Manual date configuration is no longer required for any feature, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod for SEO improvements), RSS feeds, recently updated section, search ranking, and more
 - Added Recent Updated module, see: [Add recent updates module](https://jaywhj.github.io/mkdocs-materialx/setup/adding-recent-updates-module)
     - Displays recently updated documents in descending order of update time, with dynamically refreshed list items
     - Supports multiple flexible layout styles (list, detail, grid)
