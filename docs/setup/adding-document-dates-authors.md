@@ -8,7 +8,7 @@ icon: material/account-clock-outline
 <!-- md:version 10.0.4 -->
 <!-- md:plugin [document-dates] -->
 
-You can add date and author information to your documents via the plugin [document-dates], a new generation MkDocs plugin for displaying exact **creation date, last updated date, authors, email** of documents.
+You can add date and author information to your documents via the built-in [document-dates] plugin, a new generation MkDocs plugin for displaying exact **creation date, last updated date, authors, email** of documents.
 
 ![render](../assets/screenshots/document-dates.gif)
 
@@ -34,13 +34,25 @@ You can add date and author information to your documents via the plugin [docume
 
 ## Installation
 
-Install it with `pip`:
+This plugin is built-in and does not require separate installation.
 
-```bash
-pip install mkdocs-document-dates
-```
+If you wish to install it individually, you may use the following command:
 
-Then, add the following lines to `mkdocs.yml`:
+=== "Install"
+
+    ```bash
+    pip install mkdocs-document-dates
+    ```
+
+=== "Upgrade"
+
+    ```bash
+    pip install --upgrade mkdocs-document-dates
+    ```
+
+## Configuration
+
+Add the following lines to `mkdocs.yml`:
 
 ```yaml
 plugins:
@@ -59,8 +71,6 @@ plugins:
         - blog/*                   # Example: exclude all files in blog folder, including subfolders
         - '*/index.md'             # Example: exclude all index.md files in any subfolders
 ```
-
-## Configuration
 
 The following configuration options are supported:
 
