@@ -330,9 +330,15 @@ npm start
 
 Then, in a second terminal window, start the MkDocs live preview server with:
 
-```
-mkdocs serve --watch-theme
-```
+=== "MkDocs"
+    ```
+    mkdocs serve --watch-theme
+    ```
+
+=== "ProperDocs"
+    ```
+    properdocs serve --watch-theme
+    ```
 
 Point your browser to [localhost:8000][live preview] and you should see this
 very documentation in front of you.
