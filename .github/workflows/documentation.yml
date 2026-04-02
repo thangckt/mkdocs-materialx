@@ -59,7 +59,6 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install .[recommended,imaging]
-          pip install mkdocs-glightbox
 
       - name: Deploy to gh-pages
         run: mkdocs gh-deploy --force
