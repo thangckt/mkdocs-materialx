@@ -34,13 +34,29 @@ You can add date and author information to your documents via the plugin [docume
 
 ## Installation
 
-Install it with `pip`:
+This plugin is built-in and does not require separate installation. If you wish to install it individually, you may use the following command:
 
-```bash
-pip install mkdocs-document-dates
-```
+=== "Install"
 
-Then, add the following lines to `mkdocs.yml`:
+    ```bash
+    pip install mkdocs-document-dates
+    ```
+
+=== "Upgrade"
+
+    ```bash
+    pip install --upgrade mkdocs-document-dates
+    ```
+
+## Configuration
+
+This plugin completely resolved date and time infrastructure issues, enabling the project to support automated date processing. Manual date configuration is no longer required for any feature, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod - SEO improvements), RSS feeds, recently updated section, search ranking, and more.
+
+!!! tip "Prerequisite"
+
+    You need to configure it in the `plugins` section to enable it first.
+
+Add the following lines to `mkdocs.yml`:
 
 ```yaml
 plugins:
@@ -59,8 +75,6 @@ plugins:
         - blog/*                   # Example: exclude all files in blog folder, including subfolders
         - '*/index.md'             # Example: exclude all index.md files in any subfolders
 ```
-
-## Configuration
 
 The following configuration options are supported:
 

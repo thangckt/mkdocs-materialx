@@ -18,18 +18,19 @@ The recent updates module displays site documentation information in a structure
 - Support multiple view modes including list, detail and grid
 - Support automatic extraction of article summaries
 - Support for customizing article cover in Front Matter
+- Support automatic readtime estimation, compatible with all major languages and mixed-language content
 - Support custom display quantity
 - Support exclude specified files or folders
 
 ## Installation
 
-This feature is provided by the plugin [document-dates], which should be installed first:
+This feature is provided by the built-in plugin [document-dates] and requires no separate installation.
 
-```bash
-pip install mkdocs-document-dates
-```
+  [document-dates]: https://github.com/jaywhj/mkdocs-document-dates
 
-then configure the switch `recently-updated` in `mkdocs.yml`:
+## Configuration
+
+Configure the switch `recently-updated` in `mkdocs.yml`:
 
 ```yaml title="mkdocs.yml"
 - document-dates:
@@ -41,10 +42,6 @@ then configure the switch `recently-updated` in `mkdocs.yml`:
         - '*/index.md'      # Example: exclude all index.md files in any subfolders
         - blog/*            # Example: exclude all files in blog folder, including subfolders
 ```
-
-  [document-dates]: https://github.com/jaywhj/mkdocs-document-dates
-
-## Configuration
 
 The following configuration options are supported:
 

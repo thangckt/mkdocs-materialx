@@ -71,6 +71,7 @@ $admonitions: (
     background-color: var(--md-admonition-bg-color);
     border: px2rem(1px) solid $clr-blue-a200;
     border-radius: px2rem(8px);
+    overflow: hidden;
     // box-shadow: var(--md-shadow-z1);
     // transition: box-shadow 125ms;
     page-break-inside: avoid;
@@ -129,14 +130,10 @@ $admonitions: (
     background-color: color.adjust($clr-blue-a200, $alpha: -0.9);
     border: none;
     border-inline-start-width: px2rem(4px);
-    border-start-start-radius: px2rem(8px);
-    border-start-end-radius: px2rem(8px);
 
     // Adjust spacing for title-only admonitions
     html &:last-child {
       margin-bottom: 0;
-      border-end-start-radius: px2rem(8px);
-      border-end-end-radius: px2rem(8px);
     }
 
     // Admonition icon
