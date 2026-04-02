@@ -51,12 +51,8 @@ $admonitions: (
 // Admonition variables
 :root {
   @each $name, $props in $admonitions {
-    --md-admonition-color--#{$name}:
-      #{list.nth($props, 2)};
-    --md-admonition-title-bg-color--#{$name}:
-      #{color.adjust(list.nth($props, 2), $alpha: -0.7)};
-    --md-admonition-icon--#{$name}:
-      svg-load("material/#{list.nth($props, 1)}.svg");
+    --md-admonition-color--#{$name}: #{list.nth($props, 2)};
+    --md-admonition-icon--#{$name}: svg-load("material/#{list.nth($props, 1)}.svg");
   }
 }
 
@@ -64,7 +60,6 @@ $admonitions: (
 @each $name, $props in $admonitions {
   .md-typeset .admonition.#{$name} {
     --md-admonition-color: var(--md-admonition-color--#{$name});
-    --md-admonition-title-bg-color: var(--md-admonition-title-bg-color--#{$name});
     --md-admonition-icon: var(--md-admonition-icon--#{$name});
   }
 }
@@ -80,8 +75,9 @@ $admonitions: (
   // rendered as collapsible admonitions with summary elements as titles.
   .admonition {
     --md-admonition-color: #{$clr-blue-a200};
-    --md-admonition-title-bg-color: #{color.adjust($clr-blue-a200, $alpha: -0.7)};
+    --md-admonition-title-bg-color: color-mix(in srgb, var(--md-admonition-color), transparent 70%);
     --md-admonition-icon: var(--md-admonition-icon--note);
+    --md-admonition-border-color: var(--md-admonition-title-bg-color);
 
     display: flow-root;
     padding: 0 px2rem(12px);
@@ -89,7 +85,7 @@ $admonitions: (
     font-size: px2rem(12.8px);
     color: var(--md-admonition-fg-color);
     background-color: var(--md-admonition-bg-color);
-    border: px2rem(1px) solid var(--md-admonition-title-bg-color);
+    border: px2rem(1px) solid var(--md-admonition-border-color);
     border-radius: px2rem(8px);
     overflow: hidden;
     // box-shadow: var(--md-shadow-z1);
