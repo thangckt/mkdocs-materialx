@@ -424,6 +424,7 @@ the default type, and thus fallback for unknown type qualifiers, is `note`[^1]:
 ## Customization
 
 ### Classic admonitions
+
 In previous versions, admonitions had a slightly different appearance.
 
 #### Prior to version <!-- md:version 8.5.6 -->
@@ -466,6 +467,7 @@ If you want to restore this appearance, add the following CSS to an
     ```
 
 #### Prior to version <!-- md:version 10.0.6 -->
+
 !!! classic2 "Note"
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
@@ -479,6 +481,7 @@ If you want to restore this appearance, add the following CSS to an
   .md-typeset .admonition.classic2 {
     --md-admonition-title-bg-color: color-mix(in srgb, var(--md-admonition-color), transparent 90%);
     --md-admonition-border-color: var(--md-admonition-color);
+    border-width: 1.5px;
   }
 </style>
 
@@ -489,6 +492,7 @@ If you want to restore this appearance, add the following CSS to an
     .md-typeset details {
       --md-admonition-title-bg-color: color-mix(in srgb, var(--md-admonition-color), transparent 90%);
       --md-admonition-border-color: var(--md-admonition-color);
+      border-width: 1.5px;
     }
     ```
 === ":octicons-file-code-16: `mkdocs.yml`"

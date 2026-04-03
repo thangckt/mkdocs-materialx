@@ -93,7 +93,7 @@
       width: px2rem(20px);
       height: px2rem(20px);
       content: "";
-      background-color: currentcolor;
+      background-color: var(--md-admonition-color);
       mask-image: var(--md-details-icon);
       mask-repeat: no-repeat;
       mask-position: center;
