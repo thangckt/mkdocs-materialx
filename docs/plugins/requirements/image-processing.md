@@ -6,14 +6,13 @@ icon: material/image-sync-outline
 
 Some of the [built-in plugins] depend on external libraries for efficient image
 processing, most notably the [social] plugin to generate [social cards], and the
-[optimize] plugin for applying [image optimization]. This guide explains how to
+[optimize] plugin for applying image optimization. This guide explains how to
 install those libraries in different environments.
 
   [built-in plugins]: ../index.md
   [social]: ../social.md
   [social cards]: ../../setup/setting-up-social-cards.md
   [optimize]: ../optimize.md
-  [image optimization]: ../../setup/building-an-optimized-site.md
 
 ## Dependencies
 
@@ -37,7 +36,7 @@ This will install compatible versions of the following packages:
 
 [Cairo Graphics] is a graphics library and dependency of [Pillow], which
 Material for MkDocs makes use of for generating [social cards] and performing
-[image optimization]. See the following section which explains how to install
+image optimization. See the following section which explains how to install
 [Cairo Graphics] and its dependencies on your system:
 
 === ":material-apple: macOS"
@@ -99,7 +98,7 @@ The following environments come with a preinstalled version of [Cairo Graphics]:
   [MSYS2]: https://www.msys2.org/
   [UCRT64]: https://www.msys2.org/docs/environments/
   [Docker image]: https://hub.docker.com/r/squidfunk/mkdocs-material/
-  [GitHub Actions]: ../../publishing-your-site.md#with-github-actions
+  [GitHub Actions]: ../../publishing-your-site.md#github-pages
 
 ### pngquant
 
@@ -193,7 +192,7 @@ process is different:
     View source code of [cairo-lookup-macos.py]
 
     ```bash title="Python Debug macOS Script"
-    curl "https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/includes/debug/cairo-lookup-macos.py" | python -
+    curl "https://raw.githubusercontent.com/jaywhj/mkdocs-materialx/main/includes/debug/cairo-lookup-macos.py" | python -
     ```
 
 === ":fontawesome-brands-windows: Windows"
@@ -225,7 +224,7 @@ process is different:
     View source code of [cairo-lookup-windows.py]
 
     ```powershell title="PowerShell - Python Debug Windows Script"
-    (Invoke-WebRequest "https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/includes/debug/cairo-lookup-windows.py").Content | python -
+    (Invoke-WebRequest "https://raw.githubusercontent.com/jaywhj/mkdocs-materialx/main/includes/debug/cairo-lookup-windows.py").Content | python -
     ```
 
 === ":material-linux: Linux"
@@ -253,7 +252,7 @@ process is different:
     View source code of [cairo-lookup-linux.py]
 
     ```bash title="Python Debug Linux Script"
-    curl "https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/includes/debug/cairo-lookup-linux.py" | python -
+    curl "https://raw.githubusercontent.com/jaywhj/mkdocs-materialx/main/includes/debug/cairo-lookup-linux.py" | python -
     ```
 
   [PyPi CairoSVG]: https://pypi.org/project/CairoSVG
@@ -267,6 +266,6 @@ process is different:
   [find-library-macOS]: https://github.com/python/cpython/blob/4d58a1d8fb27048c11bcbda3da1bebf78f979335/Lib/ctypes/util.py#L70-L81
   [find-library-Windows]: https://github.com/python/cpython/blob/4d58a1d8fb27048c11bcbda3da1bebf78f979335/Lib/ctypes/util.py#L59-L67
   [find-library-Linux]: https://github.com/python/cpython/blob/4d58a1d8fb27048c11bcbda3da1bebf78f979335/Lib/ctypes/util.py#L92
-  [cairo-lookup-macos.py]: https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/includes/debug/cairo-lookup-macos.py
-  [cairo-lookup-windows.py]: https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/includes/debug/cairo-lookup-windows.py
-  [cairo-lookup-linux.py]: https://raw.githubusercontent.com/squidfunk/mkdocs-material/master/includes/debug/cairo-lookup-linux.py
+  [cairo-lookup-macos.py]: https://raw.githubusercontent.com/jaywhj/mkdocs-materialx/main/includes/debug/cairo-lookup-macos.py
+  [cairo-lookup-windows.py]: https://raw.githubusercontent.com/jaywhj/mkdocs-materialx/main/includes/debug/cairo-lookup-windows.py
+  [cairo-lookup-linux.py]: https://raw.githubusercontent.com/jaywhj/mkdocs-materialx/main/includes/debug/cairo-lookup-linux.py

@@ -19,10 +19,20 @@
 # IN THE SOFTWARE.
 
 name: documentation
+
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
-      - master
+      - main
+    paths:
+      - 'docs/**'
+      - 'mkdocs.yml'
+
+concurrency:
+  group: docs-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   PYTHON_VERSION: 3.x
@@ -32,10 +42,10 @@ permissions:
 
 jobs:
   documentation:
-    name: Deploy docs
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    steps:
 
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v5
         with:
@@ -45,6 +55,7 @@ jobs:
             includes
             material
             src/templates/partials/languages
+            mkdocs.yml
 
       - name: Set up Python runtime
         uses: actions/setup-python@v6

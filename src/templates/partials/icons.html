@@ -20,24 +20,6 @@
   IN THE SOFTWARE.
 -->
 
-<!-- Custom admonition icons -->
-{% if config.theme.icon.admonition %}
-  {% set _ = namespace(style = "\u003cstyle\u003e:root{") %}
-  {% for type, icon in config.theme.icon.admonition | items %}
-    {% if type and icon %}
-      {% import ".icons/" ~ icon ~ ".svg" as icon %}
-      {% set _.style = _.style ~
-        "--md-admonition-icon--" ~ type ~ ":" ~
-        "url('data:image/svg+xml;charset=utf-8," ~
-          icon | replace("\n", "") | urlencode ~
-        "');"
-      %}
-    {% endif %}
-  {% endfor %}
-  {% set _.style = _.style ~ "}\u003c/style\u003e" %}
-  {{ _.style }}
-{% endif %}
-
 <!-- Custom annotation icon -->
 {% if config.theme.icon.annotation %}
   {% set _ = namespace(style = "\u003cstyle\u003e:root{") %}

@@ -6,7 +6,7 @@ icon: material/vector-difference-ab
 
 **MaterialX**, the next generation of mkdocs-material, build beautiful sites the way you already know and love, based on `mkdocs-material-9.7.1` and named `X`, it provides ongoing maintenance and updates.
 
-??? quote "Why MaterialX ?"
+??? desc "Why MaterialX ?"
 
     The MkDocs project is nearing its end due to personal issues involving its original author. He has ceased updates for MkDocs and intends to release a completely new 2.0 version as a replacement. However, this new version is entirely incompatible with the existing ecosystem. It is an entirely separate project that merely carries the MkDocs name, and an accidental upgrade will result in devastating damage.
 
@@ -24,7 +24,7 @@ MaterialX aims to be a **simple, zero-fuss** static site generator.
 
 Users can convert their regular notes and docs into professional sites with just light configuration, for easy sharing and communication.
 
-??? quote "Why the focus on simplicity and ease of use ?"
+??? desc "Why the focus on simplicity and ease of use ?"
 
     In my opinion, the beauty of technology lies in enabling more people to effortlessly achieve what was once difficult using the tools you provide.
 
@@ -63,7 +63,7 @@ Therefore, MaterialX will adhere to the following goals and principles:
 ## MaterialX Update Highlights
 
 - Added next-generation date & author plugin, see: [Adding Document Dates and Authors](setup/adding-document-dates-authors.md){target="_blank"}
-    - Completely resolved date and time infrastructure issues, enabling the project to support automated date processing. Manual date configuration is no longer required for any feature, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod - SEO improvements), RSS feeds, recently updated section, search ranking, and more
+    - Completely resolved date and time infrastructure issues, enabling the project to support automated date processing. **Manual date configuration is no longer required for any feature**, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod - SEO improvements), RSS feeds, recently updated section, search ranking, and more
 - Added Recent Updated module, see: [Adding Recent Updates Module](setup/adding-recent-updates-module.md){target="_blank"}
     - Displays recently updated documents in descending order of update time, with dynamically refreshed list items
     - Supports multiple flexible layout styles (list, detail, grid)
@@ -75,8 +75,7 @@ Therefore, MaterialX will adhere to the following goals and principles:
     - Moved the "Back to top" container to the bottom, aligning with natural interaction logic
     - Optimized the show/hide sensitivity of the "Back to top" container
     - Added indent guide lines and active link accent colors for the TOC
-- Added the modern Liquid Glass theme, consistent with Zensical
-- Allows setting the topbar background color in the Liquid Glass theme to support backgrounds with different color schemes, see [Topbar style](setup/changing-the-colors.md#topbar-style){target="_blank"}
+- Added the modern Liquid Glass theme, allows setting the topbar background color in this theme to support backgrounds with different color schemes, see [Topbar style](setup/changing-the-colors.md#topbar-style){target="_blank"}
 - For more details, see [Changelog](changelog/index.md){target="_blank"}
 
 ## Quick Start

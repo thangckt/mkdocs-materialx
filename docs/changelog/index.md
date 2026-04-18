@@ -6,6 +6,14 @@ icon: material/layers-triple-outline
 
 ## MaterialX
 
+### 10.1.3 <small>April 10, 2026</small> { id="10.1.3" }
+
+- Feature: Bundled icons can now be used as favicon, see [Favicon](../setup/changing-the-logo-and-icons.md#favicon){target="_blank"}
+- Feature: Modularized Admonition for easier extensibility
+    - Customizing a new admonition can now be done simply by configuring it in `mkdocs.yml`, see [Customization](../reference/admonitions.md#customization){target="_blank"}
+- Fixed compatibility issue with the `lastmod` value in `sitemap.xml`
+    - When used with the `document-dates` plugin, `sitemap.xml` can now generate the exact `lastmod`, see [sitemap.xml](https://github.com/jaywhj/mkdocs-materialx/blob/main/src/templates/sitemap.xml){target="_blank"}
+- Optimized inline code block style
 
 ### 10.1.2 <small>April 1, 2026</small> { id="10.1.2" }
 
@@ -13,15 +21,14 @@ icon: material/layers-triple-outline
 - Fixed the border gap issue for `admonitions` & `details`
 - Updated the usage documentation for the `document-dates` plugin, see [Configuration](../setup/adding-document-dates-authors.md#configuration){target="_blank"}
 - Updated project development setup
-- Archived unnecessary docs and exclude them from the build, see [Archives](https://github.com/jaywhj/mkdocs-materialx/tree/master/docs/archives){target="_blank"}
+- Archived unnecessary docs and exclude them from the build, see [Archives](https://github.com/jaywhj/mkdocs-materialx/tree/main/docs/archives){target="_blank"}
 
 ### 10.1.1 <small>March 29, 2026</small> { id="10.1.1" }
 
 - Added support for ProperDocs
 - Date & time infrastructure (provided by the built-in plugin `document-dates`; remember to enable it in the `plugins` section)
     - Completely resolved date and time infrastructure issues, enabling the project to support automated date processing. Manual date configuration is no longer required for any feature, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod - SEO improvements), RSS feeds, recently updated section, search ranking, and more
-    - Added an override template for `sitemap.xml` that supports dynamically loading the exact lastmod to improve SEO, see [sitemap.xml
-](https://github.com/jaywhj/mkdocs-materialx/blob/master/src/templates/sitemap.xml){target="_blank"}
+    - Added an override template for `sitemap.xml` that supports dynamically loading the exact lastmod to improve SEO, see [sitemap.xml](https://github.com/jaywhj/mkdocs-materialx/blob/main/src/templates/sitemap.xml){target="_blank"}
     - Updated the processing logic for blog post dates, manual date specification is no longer required
     - These date values can be accessed via template variables in any template or plugin, see [Template Variables](../setup/adding-document-dates-authors.md#template-variables){target="_blank"}
 - Recently updated list
@@ -54,7 +61,7 @@ icon: material/layers-triple-outline
 
 ### 10.0.9 <small>February 20, 2026</small> { id="10.0.9" }
 
-- Added configurable styles for topbar, allow to set topbar background color in Liquid Glass theme, see [Topbar style](../setup/changing-the-colors.md#topbar-style)
+- Added configurable styles for topbar, allow to set topbar background color in Liquid Glass theme, see [Topbar style](../setup/changing-the-colors.md#topbar-style){target="_blank"}
 - Make color-mix of navigation background compatible with iOS 14 and earlier
 - Optimized the css details of NAV and TOC on different platforms again to improve the aesthetics
 
@@ -72,7 +79,7 @@ icon: material/layers-triple-outline
 
 ### 10.0.6 <small>January 28, 2026</small> { id="10.0.6" }
 
-- New: The recently updated document list supports **summary mode** and automatically extracts article summaries, [preview](https://jaywhj.netlify.app/)
+- New: The recently updated document list supports **summary mode** and automatically extracts article summaries, [preview](https://jaywhj.netlify.app/){target="_blank"}
 - New: The recently updated document list supports **dynamic layout**, with multiple view modes added including list, detail and grid
 - Updated: Adjusted the UI style of `admonition`
 - Updated: Adjusted the UI style of `blockquote`
@@ -93,8 +100,8 @@ icon: material/layers-triple-outline
 
 - New: Refactor the TOC components for mobile, now you can experience TOC perfectly on mobile!
 - New: Show `git repo` in sidebar on mobile
-- New: Add a new generation date author plugin, see doc [Add document dates authors](../setup/adding-document-dates-authors.md)
-- New: Add recent updates module, see doc [Add recent updates module](../setup/adding-recent-updates-module.md)
+- New: Add a new generation date author plugin, see doc [Add document dates authors](../setup/adding-document-dates-authors.md){target="_blank"}
+- New: Add recent updates module, see doc [Add recent updates module](../setup/adding-recent-updates-module.md){target="_blank"}
 - Fixed: Placing the back-to-top button at the bottom, this is more in line with the interaction logic of proximity operation
 - Fixed: Optimize the judgment of the direction of the swipe gesture, so as to adjust the sensitivity of showing the bottom menu
 - Fixed: Search function does not display properly on mobile
@@ -125,7 +132,7 @@ icon: material/layers-triple-outline
 This release includes all features that were previously exclusive to the
 Insiders edition. These features are now freely available to everyone.
 
-__Note on deprecated plugins__: The [projects] and [typeset] plugins are
+__Note on deprecated plugins__: The `projects` and `typeset` plugins are
 included in this release, but must be considered deprecated. Both plugins
 proved unsustainable to maintain and represent architectural dead ends. They
 are provided as-is without ongoing support.
@@ -155,8 +162,6 @@ __Changes__:
 
   [Zensical]: https://zensical.org
   [Read the full announcement on our blog]: ../blog/posts/zensical.md
-  [projects]: ../plugins/projects.md
-  [typeset]: ../plugins/typeset.md
 
 ### 9.6.23 <small>November 1, 2025</small> { id="9.6.23" }
 

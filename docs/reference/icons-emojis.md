@@ -110,7 +110,7 @@ a valid path to any icon bundled with the theme, which are located in the
 
 </div>
 
-  [custom icons]: https://github.com/jaywhj/mkdocs-materialx/tree/master/material/templates/.icons
+  [custom icons]: https://github.com/jaywhj/mkdocs-materialx/tree/main/material/templates/.icons
 
 #### with colors
 
@@ -199,14 +199,6 @@ After applying the customization, add the CSS class to the icon shortcode:
 
   [colors]: #with-colors
   [animations]: https://developer.mozilla.org/en-US/docs/Web/CSS/animation
-
-### Icons, emojis in sidebars :smile:
-
-With the help of the [built-in typeset plugin], you can use icons and emojis
-in headings, which will then be rendered in the sidebars. The plugin preserves
-Markdown and HTML formatting.
-
-  [built-in typeset plugin]: ../plugins/typeset.md
 
 ## Customization
 

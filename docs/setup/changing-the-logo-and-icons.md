@@ -63,20 +63,54 @@ extra:
 
 <!-- md:version 0.1.0 -->
 <!-- md:default [`assets/images/favicon.png`][Favicon default] -->
+<!-- md:version 10.1.3 --> `icon support`
 
-The favicon can be changed to a path pointing to a user-provided image, which
-must be located in the `docs` folder. Add the following lines to `mkdocs.yml`:
+The favicon can be changed to a path pointing to a user-provided image located
+in the `docs` folder, to any icon bundled with the theme, or even a
+[custom icon][additional icons]. Add the following lines to `mkdocs.yml`:
 
-``` yaml
-theme:
-  favicon: images/favicon.png
-```
+=== ":octicons-image-16: Image"
 
-  [Favicon default]: https://github.com/jaywhj/mkdocs-materialx/blob/master/material/templates/assets/images/favicon.png
+    ``` yaml
+    theme:
+      favicon: images/favicon.png
+    ```
+
+=== ":octicons-package-16: Icon, bundled"
+
+    ``` yaml
+    theme:
+      favicon: simple/materialformkdocs # (1)!
+    ```
+
+    1.  Enter a few keywords to find the perfect icon using our [icon search] and
+        click on the shortcode to copy it to your clipboard:
+
+        <div class="mdx-iconsearch" data-mdx-component="iconsearch">
+          <input class="md-input md-input--stretch mdx-iconsearch__input" placeholder="Search icon" data-mdx-component="iconsearch-query" value="" />
+          <div class="mdx-iconsearch-result" data-mdx-component="iconsearch-result" data-mdx-mode="file">
+            <div class="mdx-iconsearch-result__meta"></div>
+            <ol class="mdx-iconsearch-result__list"></ol>
+          </div>
+        </div>
+
+=== ":octicons-file-16: Icon, custom"
+
+    ``` yaml
+    theme:
+      favicon: bootstrap/envelope-paper # (1)!
+    ```
+
+    1.  Set up a [custom icon set][additional icons] and reference the icon by
+        taking the path of the `*.svg` file starting at the `.icons` folder and
+        dropping the file extension, e.g. for
+        `.icons/bootstrap/envelope-paper.svg`, use `bootstrap/envelope-paper`.
+
+  [Favicon default]: https://github.com/jaywhj/mkdocs-materialx/blob/main/material/templates/assets/images/favicon.png
 
 ### Site icons
 
-[:octicons-tag-24: 9.2.0][Site icon support]
+<!-- md:version 9.2.0 -->
 
 Most icons you see on your site, such as navigation icons, can also be changed. For example,
 to change the navigation arrows in the footer, add the following lines to `mkdocs.yml`:
@@ -102,12 +136,11 @@ The following is a complete list of customizable icons used by the theme:
 | `edit`       | Edit current page                                                             |
 | `view`       | View page source                                                              |
 | `repo`       | Repository icon                                                               |
-| `admonition` | See [Admonition icons](../reference/admonitions.md#admonition-icons)          |
+| `admonition` | See [Admonition icons](../reference/admonitions.md#custom-icons-and-colors)          |
 | `tag`        | See [Tag icons and identifiers](setting-up-tags.md#tag-icons-and-identifiers) |
 | `previous`   | Previous page in footer, hide search on mobile                                |
 | `next`       | Next page in footer                                                           |
 
-  [Site icon support]: https://github.com/squidfunk/mkdocs-material/releases/tag/9.2.0
 
 ## Customization
 

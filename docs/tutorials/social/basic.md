@@ -10,7 +10,7 @@ Before you start, there are just a couple of [dependencies to install]. These
 are libraries for image processing that the plugin needs to produce the social
 cards, as well as their Python bindings.
 
-[dependencies to install]: https://jaywhj.github.io/mkdocs-materialx/plugins/requirements/image-processing/
+[dependencies to install]: https://jaywhj.github.io/mkdocs-materialx/plugins/requirements/image-processing
 
 With those prerequisites met, it is simply a matter of activating the plugin,
 which will:
@@ -196,4 +196,4 @@ as not enough to meet your needs. Continue to the
 Social cards are particularly useful for blog posts. If you have a blog,
 you need to do nothing more than to turn on both plugins to create social cards
 to advertise your latest blog posts. If you do not have one yet but would like
-to, why not check out the [blog tutorials](../index.md#blogs)?
+to, why not check out the [blog tutorials](../blogs/basic.md)?

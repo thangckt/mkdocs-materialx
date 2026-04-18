@@ -216,7 +216,7 @@ const assets$ = concat(
     })),
 
   /* Copy Simple icons */
-  ...["**/*.svg", "../LICENSE.md"]
+  ...["**/*.svg", "../license.md"]
     .map(pattern => copyAll(pattern, {
       from: "node_modules/simple-icons/icons",
       to: `${base}/templates/.icons/simple`,
@@ -395,11 +395,11 @@ const index$ = zip(icons$, emojis$)
       const cdn = "https://raw.githubusercontent.com"
       return {
         icons: {
-          base: `${cdn}/jaywhj/mkdocs-materialx/master/material/templates/.icons/`,
+          base: `${cdn}/jaywhj/mkdocs-materialx/main/material/templates/.icons/`,
           data: Object.fromEntries(icons)
         },
         emojis: {
-          base: `${cdn}/jdecked/twemoji/master/assets/svg/`,
+          base: `${cdn}/jdecked/twemoji/main/assets/svg/`,
           data: Object.fromEntries(emojis)
         }
       } as IconSearchIndex

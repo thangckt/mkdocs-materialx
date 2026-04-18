@@ -50,7 +50,7 @@ This plugin is built-in and does not require separate installation. If you wish 
 
 ## Configuration
 
-This plugin completely resolved date and time infrastructure issues, enabling the project to support automated date processing. Manual date configuration is no longer required for any feature, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod - SEO improvements), RSS feeds, recently updated section, search ranking, and more.
+This plugin completely resolved date and time infrastructure issues, enabling the project to support automated date processing. **Manual date configuration is no longer required for any feature**, including: page date display, blog post dates, blog date archives, blog list sorting, sitemap.xml (lastmod - SEO improvements), RSS feeds, recently updated section, search ranking, and more.
 
 !!! tip "Prerequisite"
 
@@ -172,7 +172,7 @@ The date data is retrieved using a combination of different methods to adapt to 
 - Uses **cache files** to ensure accurate original dates in Git environments
 - Front Matter: Manually specify the date in Front Matter if you prefer not to use automatic dates
 
-??? quote "Why not use filesystem timestamps in Git environments?"
+??? desc "Why not use filesystem timestamps in Git environments ?"
 
     Because files are recreated during git checkout or git clone, causing the original timestamps of branches/files to be lost after cloning or checking out.
 
