@@ -10,6 +10,7 @@ site_description: >-
 
 repo_name: jaywhj/mkdocs-materialx
 repo_url: https://github.com/jaywhj/mkdocs-materialx
+edit_uri: edit/main/docs/
 
 copyright: Copyright &copy; 2016 - 2026 Aaron Wang
 
@@ -38,6 +39,7 @@ theme:
   features:
     - content.action.edit
     - content.action.view
+    - content.action.agents
     - content.code.annotate
     - content.code.copy
     # - content.code.select
@@ -178,6 +180,7 @@ markdown_extensions:
       auto_append:
         - includes/mkdocs.md
   - pymdownx.superfences:
+      relaxed_headers: true
       custom_fences:
         - name: mermaid
           class: mermaid
@@ -191,6 +194,7 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  # - material.extensions.code_download
 
 
 #---- 5. Page tree ----

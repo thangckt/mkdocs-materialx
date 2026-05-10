@@ -87,6 +87,20 @@
         />
       {% endif %}
 
+      <!-- Markdown for Agents -->
+      {% if "content.action.agents" in config.theme.features and page.edit_url %}
+        {% if "/blob/" in page.edit_url %}
+          {% set part = "blob" %}
+        {% else %}
+          {% set part = "edit" %}
+        {% endif %}
+        <link
+          rel="alternate"
+          type="text/markdown"
+          href="{{ page.edit_url | replace(part, 'raw') }}"
+        />
+      {% endif %}
+
       <!-- Favicon -->
       {% if config.theme.favicon %}
         {# 1. Try to capture the bundled icon if it exists #}
@@ -448,6 +462,8 @@
           "translations": {
             "clipboard.copy": lang.t("clipboard.copy"),
             "clipboard.copied": lang.t("clipboard.copied"),
+            "code.download": lang.t("code.download"),
+            "code.select": lang.t("code.select"),
             "search.result.placeholder": lang.t("search.result.placeholder"),
             "search.result.none": lang.t("search.result.none"),
             "search.result.one": lang.t("search.result.one"),

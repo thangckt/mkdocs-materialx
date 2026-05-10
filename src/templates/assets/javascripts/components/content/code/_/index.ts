@@ -27,6 +27,7 @@ import {
   Subject,
   asyncScheduler,
   defer,
+  distinctUntilChanged,
   distinctUntilKeyChanged,
   filter,
   finalize,
@@ -67,6 +68,7 @@ import {
 import {
   renderClipboardButton,
   renderCodeBlockNavigation,
+  renderDownloadButton,
   renderSelectionButton
 } from "~/templates"
 
@@ -159,6 +161,97 @@ function findList(el: HTMLElement): HTMLElement | undefined {
 }
 
 /* ----------------------------------------------------------------------------
+ * Download internals
+ * ------------------------------------------------------------------------- */
+
+function getCodeText(el: HTMLElement): string {
+  return el.textContent?.trimEnd() || ""
+}
+
+function getCodeLanguage(container: HTMLElement, el: HTMLElement): string {
+  const find = (node: HTMLElement): string => {
+    const cls = Array.from(node.classList)
+      .find(c => c.startsWith("language-"))
+
+    return cls ? cls.slice(9) : ""
+  }
+
+  return find(container) || find(el)
+}
+
+function sanitizeFilename(name: string): string {
+  return name
+    .replace(/[\\/:*?"<>|]/g, "_")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^\.+$/, "download")
+    .slice(0, 255)
+}
+
+function ensureExtension(name: string, ext: string): string {
+  if (!ext) return name
+  if (name.toLowerCase().endsWith(ext.toLowerCase())) return name
+  return name + ext
+}
+
+function resolveBlobFilename(container: HTMLElement, el: HTMLElement): string {
+  const title = container
+    .querySelector(".filename")
+    ?.textContent
+    ?.trim()
+  const language = getCodeLanguage(container, el)
+  const extension = language ? `.${language}` : ""
+  return sanitizeFilename(
+    title
+      ? ensureExtension(title, extension)
+      : `download${extension}`
+  ) || "download"
+}
+
+/* ----------------------------------------------------------------------------
+ * Download helpers
+ * ------------------------------------------------------------------------- */
+
+function resolveDownloadStrategy(value: string | null): {
+  strategy: "blob" | "url"
+  source?: string
+} {
+  const raw = (value || "").trim()
+  const v = raw.toLowerCase()
+
+  if (!v || v === "blob" || v === "data-download") {
+    return { strategy: "blob" }
+  }
+
+  return { strategy: "url", source: raw }
+}
+
+function triggerDownload(href: string, filename: string) {
+  const link = document.createElement("a")
+  link.href = href
+  link.download = filename
+  link.rel = "noopener"
+  link.style.display = "none"
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+}
+
+function downloadBlob(text: string, filename: string) {
+  const blob = new Blob([text], {
+    type: "text/plain;charset=utf-8"
+  })
+  const url = URL.createObjectURL(blob)
+  triggerDownload(url, filename)
+  requestAnimationFrame(() => URL.revokeObjectURL(url))
+}
+
+function downloadFromUrl(source: string) {
+  const url = new URL(source, window.location.href)
+  triggerDownload(url.toString(), "")
+}
+
+/* ----------------------------------------------------------------------------
  * Functions
  * ------------------------------------------------------------------------- */
 
@@ -245,12 +338,12 @@ export function mountCodeBlock(
       )) {
         const annotations$ = mountAnnotationList(list, el, options)
         content$.push(
-          watchElementVisibility(container)
+          watchElementSize(container)
             .pipe(
               takeUntil(done$),
-              filter(active => active),
-              take(1),
-              switchMap(() => annotations$)
+              map(({ width, height }) => width && height),
+              distinctUntilChanged(),
+              switchMap(active => active ? annotations$ : EMPTY)
             )
         )
       }
@@ -478,6 +571,37 @@ export function mountCodeBlock(
         if (feature("content.tooltips"))
           content$.push(mountInlineTooltip2(button, { viewport$ }))
       }
+    }
+
+    /* Render code download button */
+    const hasBlockDownload = (
+      container instanceof HTMLElement &&
+      container.hasAttribute("data-download")
+    )
+
+    if (hasBlockDownload) {
+      const config = resolveDownloadStrategy(
+        container.getAttribute("data-download")
+      )
+
+      const button = renderDownloadButton()
+      buttons.push(button)
+      if (feature("content.tooltips"))
+        content$.push(mountInlineTooltip2(button, { viewport$ }))
+
+      fromEvent(button, "click")
+        .pipe(takeUntil(done$))
+        .subscribe(event => {
+          event.preventDefault()
+          button.blur()
+
+          if (config.strategy === "blob") {
+            const filename = resolveBlobFilename(container, el)
+            downloadBlob(getCodeText(el), filename)
+          } else if (config.source) {
+            downloadFromUrl(config.source)
+          }
+        })
     }
 
     // @hack Render code navigation and buttons

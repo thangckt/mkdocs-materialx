@@ -36,6 +36,14 @@
         <link rel="alternate" type="application/rss+xml" title="{{ lang.t('rss.created') }}" href="{{ 'feed_rss_created.xml' | url }}">
         <link rel="alternate" type="application/rss+xml" title="{{ lang.t('rss.updated') }}" href="{{ 'feed_rss_updated.xml' | url }}">
       {% endif %}
+      {% if "content.action.agents" in config.theme.features and page.edit_url %}
+        {% if "/blob/" in page.edit_url %}
+          {% set part = "blob" %}
+        {% else %}
+          {% set part = "edit" %}
+        {% endif %}
+        <link rel="alternate" type="text/markdown" href="{{ page.edit_url | replace(part, 'raw') }}">
+      {% endif %}
       {% if config.theme.favicon %}
         {# 1. Try to capture the bundled icon if it exists #}
         {% set svg_raw %}
@@ -54,7 +62,7 @@
           <link rel="icon" href="{{ config.theme.favicon | url }}">
         {% endif %}
       {% endif %}
-      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-materialx-10.1.4">
+      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-materialx-10.1.5">
     {% endblock %}
     {% block htmltitle %}
       {% if page.meta and page.meta.title %}
@@ -66,7 +74,7 @@
       {% endif %}
     {% endblock %}
     {% block styles %}
-      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.8d032b36.min.css' | url }}">
+      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.0269ebfe.min.css' | url }}">
       {% if config.theme.palette %}
         {% set palette = config.theme.palette %}
         <link rel="stylesheet" href="{{ 'assets/stylesheets/palette.d7242098.min.css' | url }}">
@@ -253,6 +261,8 @@
           "translations": {
             "clipboard.copy": lang.t("clipboard.copy"),
             "clipboard.copied": lang.t("clipboard.copied"),
+            "code.download": lang.t("code.download"),
+            "code.select": lang.t("code.select"),
             "search.result.placeholder": lang.t("search.result.placeholder"),
             "search.result.none": lang.t("search.result.none"),
             "search.result.one": lang.t("search.result.one"),
@@ -262,7 +272,7 @@
             "search.result.term.missing": lang.t("search.result.term.missing"),
             "select.version": lang.t("select.version")
           },
-          "search": "assets/javascripts/workers/search.7a47a382.min.js" | url,
+          "search": "assets/javascripts/workers/search.2c215733.min.js" | url,
           "annotate": _.annotate or none,
           "tags": _.tags or none,
           "version": _.version or none
@@ -270,7 +280,7 @@
       </script>
     {% endblock %}
     {% block scripts %}
-      <script src="{{ 'assets/javascripts/bundle.d67e244a.min.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/bundle.6427cff6.min.js' | url }}"></script>
       {% for script in config.extra_javascript %}
         {{ script | script_tag }}
       {% endfor %}
