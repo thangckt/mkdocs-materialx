@@ -74,10 +74,10 @@
       {% endif %}
     {% endblock %}
     {% block styles %}
-      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.de79a566.min.css' | url }}">
+      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.ca5a345c.min.css' | url }}">
       {% if config.theme.palette %}
         {% set palette = config.theme.palette %}
-        <link rel="stylesheet" href="{{ 'assets/stylesheets/palette.ffc1733b.min.css' | url }}">
+        <link rel="stylesheet" href="{{ 'assets/stylesheets/palette.a45159b5.min.css' | url }}">
       {% endif %}
     {% endblock %}
     {% include "partials/admonitions.html" %}
@@ -262,6 +262,8 @@
             "clipboard.copy": lang.t("clipboard.copy"),
             "clipboard.copied": lang.t("clipboard.copied"),
             "code.download": lang.t("code.download"),
+            "code.collapse": lang.t("code.collapse"),
+            "code.expand": lang.t("code.expand"),
             "code.select": lang.t("code.select"),
             "search.result.placeholder": lang.t("search.result.placeholder"),
             "search.result.none": lang.t("search.result.none"),
@@ -275,12 +277,13 @@
           "search": "assets/javascripts/workers/search.2c215733.min.js" | url,
           "annotate": _.annotate or none,
           "tags": _.tags or none,
-          "version": _.version or none
+          "version": _.version or none,
+          "code": config.theme.code or none
         } | tojson -}}
       </script>
     {% endblock %}
     {% block scripts %}
-      <script src="{{ 'assets/javascripts/bundle.1a8646e9.min.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/bundle.ecbf6a72.min.js' | url }}"></script>
       {% for script in config.extra_javascript %}
         {{ script | script_tag }}
       {% endfor %}

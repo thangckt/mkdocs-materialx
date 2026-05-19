@@ -120,3 +120,55 @@
     }
   }
 }
+
+// Collapsible code blocks
+.md-code--collapsible {
+  position: relative;
+
+  > code {
+    transition: max-height 250ms ease;
+  }
+
+  &.md-code--collapsed {
+    > code {
+      max-height: var(--md-code-fold-max-height);
+      overflow: hidden;
+    }
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 3;
+      height: px2rem(80px);
+      pointer-events: none;
+      content: "";
+      background:
+        linear-gradient(to bottom, transparent, var(--md-default-bg-color) 90% 100%);
+    }
+  }
+}
+
+// Code block toggle button
+.md-code__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: px2rem(6px) px2rem(12px);
+  margin: px2rem(8px) auto 0;
+  font-size: px2em(13.6px);
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: px2rem(8px);
+  transition:
+    background-color 250ms,
+    color 250ms,
+    border-color 250ms;
+
+  &:is(.focus-visible, :hover) {
+    color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+  }
+}

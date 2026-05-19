@@ -228,6 +228,90 @@ For example, the following formats are all supported:
   [attr_list]: https://python-markdown.github.io/extensions/attr_list/
   [superfences]: https://facelessuser.github.io/pymdown-extensions/extensions/superfences/#injecting-classes-ids-and-attributes
 
+### Code collapse & expand
+
+<!-- md:version 10.1.6 -->
+<!-- md:feature -->
+
+When an article contains long code blocks, you can enable automatic code folding to improve the overall reading experience:
+
+``` yaml { hl_lines="3-5" }
+theme:
+  name: materialx
+  code:
+    fold:
+      enabled: true
+```
+
+The default value is `false`, code folding is enabled when set to `true`, and all code blocks exceeding **12** lines (the default threshold) will be automatically folded.
+
+#### Change Default Threshold
+
+If you want to change the default folding threshold (12 lines), you can configure it via `code.fold.lines`.
+
+``` yaml { hl_lines="6" }
+theme:
+  name: materialx
+  code:
+    fold:
+      enabled: true
+      lines: 15
+```
+
+#### Set Individual Threshold
+
+If you want to set a custom folding threshold for a specific code block, you can use the `data-fold-lines` attribute in the fence block header:
+
+```` yaml { hl_lines="1" data-fold-lines="10" }
+``` yaml { data-fold-lines="10" }
+theme:
+  admonition:
+    git:
+      icon: simple/git
+      color: '#f34f29'
+    copyright:
+      icon: material/copyright
+      color: '#2b9b9b'
+    heart:
+      icon: octicons/heart-24
+      color: '#9b2b9b'
+    lyrics:
+      icon: material/microphone
+      color: '#2b2b9b'
+    soundcloud:
+      icon: simple/soundcloud
+      color: '#ff7700'
+```
+````
+
+In this case, this code block uses a threshold of 10 lines, while others remain at the default value.
+
+#### Disable Folding for Specific Blocks
+
+If you want to disable folding for a specific code block that exceeds the threshold, set `data-fold-lines` to `0` in its fence block header:
+
+```` yaml { hl_lines="1" data-fold-lines="0" }
+``` yaml { data-fold-lines="0" }
+theme:
+  admonition:
+    git:
+      icon: simple/git
+      color: '#f34f29'
+    copyright:
+      icon: material/copyright
+      color: '#2b9b9b'
+    heart:
+      icon: octicons/heart-24
+      color: '#9b2b9b'
+    lyrics:
+      icon: material/microphone
+      color: '#2b2b9b'
+    soundcloud:
+      icon: simple/soundcloud
+      color: '#ff7700'
+```
+````
+
 ### Code annotations
 
 <!-- md:version 8.0.0 -->
