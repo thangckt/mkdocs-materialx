@@ -160,9 +160,9 @@ function setupTabsOverflow(el: HTMLElement): void {
     if (isOpen && !dropdown.contains(ev.target as Node)) closeDropdown()
   })
   window.addEventListener("scroll",
-    () => { if (isOpen) positionDropdown() }, { passive: true })
+    () => { if (isOpen) positionDropdown(); }, { passive: true })
   window.addEventListener("resize",
-    () => { if (isOpen) positionDropdown() }, { passive: true })
+    () => { if (isOpen) positionDropdown(); }, { passive: true })
 
   const recalculate = (): void => {
     if (list.clientWidth === 0) return
