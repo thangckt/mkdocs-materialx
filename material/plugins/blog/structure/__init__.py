@@ -22,12 +22,11 @@ from __future__ import annotations
 
 import logging
 import os
-from copy import copy
-from datetime import datetime
-from re import Match
-
 import yaml
+
+from copy import copy
 from markdown import Markdown
+from datetime import datetime
 from material.plugins.blog.author import Author
 from material.plugins.meta.plugin import MetaPlugin
 from mkdocs.config.defaults import MkDocsConfig
@@ -37,6 +36,7 @@ from mkdocs.structure.nav import Link, Section
 from mkdocs.structure.pages import Page, _RelativePathTreeprocessor
 from mkdocs.structure.toc import get_toc
 from mkdocs.utils.meta import YAML_RE
+from re import Match
 from yaml import SafeLoader
 
 from .config import PostConfig
@@ -46,9 +46,9 @@ from .markdown import ExcerptTreeprocessor
 # Classes
 # -----------------------------------------------------------------------------
 
-
 # Post
 class Post(Page):
+
     # Initialize post - posts are never listed in the navigation, which is why
     # they will never include a title that was manually set, so we can omit it
     def __init__(self, file: File, config: MkDocsConfig, created: datetime):
@@ -59,7 +59,7 @@ class Post(Page):
         path = os.path.relpath(file.abs_src_path, docs)
 
         # Read contents and metadata immediately
-        with open(file.abs_src_path, encoding="utf-8-sig") as f:
+        with open(file.abs_src_path, encoding = "utf-8-sig") as f:
             self.markdown = f.read()
 
             # Sadly, MkDocs swallows any exceptions that occur during parsing.
@@ -73,9 +73,12 @@ class Post(Page):
             if match:
                 try:
                     self.meta = yaml.load(match.group(1), SafeLoader) or {}
-                    self.markdown = self.markdown[match.end() :].lstrip("\n")
+                    self.markdown = self.markdown[match.end():].lstrip("\n")
                 except Exception as e:
-                    raise PluginError(f"Error reading metadata of post '{path}' in '{docs}':\n{e}")
+                    raise PluginError(
+                        f"Error reading metadata of post '{path}' in '{docs}':\n"
+                        f"{e}"
+                    )
 
             # created date from plugin 'document-dates' API
             self.meta.setdefault("date", created)
@@ -89,21 +92,29 @@ class Post(Page):
             # `on_files` but the meta plugin first runs in `on_page_markdown`.
             plugin: MetaPlugin = config.plugins.get(f"{config.theme.name}/meta")
             if plugin:
-                plugin.on_page_markdown(self.markdown, page=self, config=config, files=None)
+                plugin.on_page_markdown(
+                    self.markdown, page = self, config = config, files = None
+                )
 
         # Initialize post configuration, but remove all keys that this plugin
         # doesn't care about, or they will be reported as invalid configuration
         self.config: PostConfig = PostConfig(file.abs_src_path)
-        self.config.load_dict(
-            {key: self.meta[key] for key in (set(self.meta.keys()) & set(self.config.keys()))}
-        )
+        self.config.load_dict({
+            key: self.meta[key] for key in (
+                set(self.meta.keys()) &
+                set(self.config.keys())
+            )
+        })
 
         # Validate configuration and throw if errors occurred
         errors, warnings = self.config.validate()
         for _, w in warnings:
             log.warning(w)
         for k, e in errors:
-            raise PluginError(f"Error reading metadata '{k}' of post '{path}' in '{docs}':\n{e}")
+            raise PluginError(
+                f"Error reading metadata '{k}' of post '{path}' in '{docs}':\n"
+                f"{e}"
+            )
 
         # Excerpts are subsets of posts that are used in pages like archive and
         # category views. They are not rendered as standalone pages, but are
@@ -128,12 +139,11 @@ class Post(Page):
     def read_source(self, config: MkDocsConfig):
         pass
 
-
 # -----------------------------------------------------------------------------
-
 
 # Excerpt
 class Excerpt(Page):
+
     # Initialize an excerpt for the given post - we create the Markdown parser
     # when intitializing the excerpt in order to improve rendering performance
     # for excerpts, as they are reused across several different views, because
@@ -148,7 +158,7 @@ class Excerpt(Page):
 
         # Initialize configuration and metadata
         self.config = post.config
-        self.meta = post.meta
+        self.meta   = post.meta
 
         # Initialize authors and categories - note that views usually contain
         # subsets of those lists, which is why we need to manage them here
@@ -163,18 +173,24 @@ class Excerpt(Page):
         # more specifically the table of contents extension
         config = _patch(config)
         self.md = Markdown(
-            extensions=config.markdown_extensions,
-            extension_configs=config.mdx_configs,
+            extensions = config.markdown_extensions,
+            extension_configs = config.mdx_configs,
         )
 
         # Register excerpt tree processor - this processor resolves anchors to
         # posts from within views, so they point to the correct location
-        self.md.treeprocessors.register(ExcerptTreeprocessor(post), "excerpt", 0)
+        self.md.treeprocessors.register(
+            ExcerptTreeprocessor(post),
+            "excerpt",
+            0
+        )
 
         # Register relative path tree processor - this processor resolves links
         # to other pages and assets, and is used by MkDocs itself
         self.md.treeprocessors.register(
-            _RelativePathTreeprocessor(self.file, files, config), "relpath", 1
+            _RelativePathTreeprocessor(self.file, files, config),
+            "relpath",
+            1
         )
 
     # Render an excerpt of the post on the given page - note that this is not
@@ -206,12 +222,11 @@ class Excerpt(Page):
         self.toc = get_toc(getattr(self.md, "toc_tokens", []))
         self.file.url = self.post.url
 
-
 # -----------------------------------------------------------------------------
-
 
 # View
 class View(Page):
+
     # Parent view
     parent: View | Section
 
@@ -239,57 +254,48 @@ class View(Page):
         # Ensure template is set or use default
         self.meta.setdefault("template", "blog.html")
 
-
 # -----------------------------------------------------------------------------
-
 
 # Archive view
 class Archive(View):
     pass
 
-
 # -----------------------------------------------------------------------------
-
 
 # Category view
 class Category(View):
     pass
 
-
 # -----------------------------------------------------------------------------
-
 
 # Profile view
 class Profile(View):
     pass
 
-
 # -----------------------------------------------------------------------------
-
 
 # Reference
 class Reference(Link):
+
     # Initialize reference - this is essentially a crossover of pages and links,
     # as it inherits the metadata of the page and allows for anchors
     def __init__(self, title: str, url: str):
         super().__init__(title, url)
         self.meta = {}
 
-
 # -----------------------------------------------------------------------------
 # Helper functions
 # -----------------------------------------------------------------------------
-
 
 # Patch configuration
 def _patch(config: MkDocsConfig):
     config = copy(config)
 
     # Copy parts of configuration that needs to be patched
-    config.validation = copy(config.validation)
-    config.validation.links = copy(config.validation.links)
+    config.validation          = copy(config.validation)
+    config.validation.links    = copy(config.validation.links)
     config.markdown_extensions = copy(config.markdown_extensions)
-    config.mdx_configs = copy(config.mdx_configs)
+    config.mdx_configs         = copy(config.mdx_configs)
 
     # Make sure that the author did not add another instance of the table of
     # contents extension to the configuration, as this leads to weird behavior
@@ -301,11 +307,11 @@ def _patch(config: MkDocsConfig):
     config.mdx_configs["toc"] = {
         **config.mdx_configs.get("toc", {}),
         **{
-            "anchorlink": True,  # Render headline as clickable
-            "baselevel": 2,  # Render h1 as h2 and so forth
-            "permalink": False,  # Remove permalinks
-            "toc_depth": 2,  # Remove everything below h2
-        },
+            "anchorlink": True,        # Render headline as clickable
+            "baselevel": 2,            # Render h1 as h2 and so forth
+            "permalink": False,        # Remove permalinks
+            "toc_depth": 2             # Remove everything below h2
+        }
     }
 
     # Additionally, we disable link validation when rendering excerpts, because
@@ -317,7 +323,6 @@ def _patch(config: MkDocsConfig):
 
     # Return patched configuration
     return config
-
 
 # -----------------------------------------------------------------------------
 # Data
