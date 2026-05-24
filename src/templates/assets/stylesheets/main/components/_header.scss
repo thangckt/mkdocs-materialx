@@ -179,12 +179,12 @@
   // Header title
   &__title {
     flex-grow: 1;
+    width: px2rem(280px);
     height: px2rem(48px);
     margin-inline: px2rem(8px);
     font-size: px2rem(18px);
     line-height: px2rem(48px);
     letter-spacing: -0.025em;
-    width: px2rem(280px);
 
     // Header title in active state, i.e. page title is visible
     &--active .md-header__topic {
@@ -256,11 +256,11 @@
   }
 }
 
-  // Slightly smaller icons
-  .md-icon svg {
-    width: px2rem(20px);
-    height: px2rem(20px);
-  }
+// Slightly smaller icons
+.md-icon svg {
+  width: px2rem(20px);
+  height: px2rem(20px);
+}
 
 // Tabs embedded inside the header nav element (navigation.tabs.header feature).
 // Make the tabs a proper flex child and remove duplicate background/blur that
@@ -290,8 +290,8 @@
 
   > .md-header__ellipsis {
     position: static;
-    width: 100%;
     display: grid;
+    width: 100%;
   }
 
   .md-header__topic {
