@@ -120,3 +120,67 @@
     }
   }
 }
+
+// Collapsible code blocks
+.md-code--collapsible {
+  > code {
+    // Safari / iOS compatibility
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    transition: max-height 250ms ease;
+  }
+
+  &.md-code--collapsed > code {
+    max-height: var(--md-code-fold-max-height);
+    overflow: hidden;
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        #000000 calc(100% - #{px2rem(80px)}),
+        transparent 96% 100%
+      );
+    mask-image:
+      linear-gradient(
+        to bottom,
+        #000000 calc(100% - #{px2rem(80px)}),
+        transparent 96% 100%
+      );
+  }
+}
+
+// Code block toggle button
+.md-code__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: px2rem(6px) px2rem(12px);
+  margin: px2rem(8px) auto 0;
+  font-size: px2em(13.6px);
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: px2rem(8px);
+  transition:
+    background-color 250ms,
+    color 250ms,
+    border-color 250ms;
+
+  &.focus-visible {
+    color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+  }
+
+  &:active {
+    color: var(--md-accent-fg-color);
+    border-color: var(--md-accent-fg-color);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: var(--md-accent-fg-color);
+      border-color: var(--md-accent-fg-color);
+    }
+  }
+}

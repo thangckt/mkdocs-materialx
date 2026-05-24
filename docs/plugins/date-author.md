@@ -415,14 +415,12 @@ show_author: text
 
 #### Configuration style
 
-You can quickly set the plugin styles through preset entrances, such as **icons, themes, colors, fonts, animations, dividing line** and so on, you just need to find the file below and uncomment it:
+You can quickly set the plugin styles through preset entrances, such as **icons, themes, colors, fonts, animations, dividing line** and so on. Download the config template file into `docs/assets/document_dates/` and uncomment it:
 
 |        Category:        | Location:                  |
 | :----------------------: | -------------------------- |
-|     **Style & Theme**     | docs/assets/document_dates/user.config.css |
-| **Properties & Functions** | docs/assets/document_dates/user.config.js |
-
-You can also refer to the latest example file for free customization: [user.config](https://github.com/jaywhj/mkdocs-document-dates/tree/main/mkdocs_document_dates/static/config)
+|     **Style & Theme**     | [docs/assets/document_dates/config.css](https://raw.githubusercontent.com/jaywhj/mkdocs-document-dates/main/mkdocs_document_dates/static/config/config.css) |
+| **Properties & Functions** | [docs/assets/document_dates/config.js](https://raw.githubusercontent.com/jaywhj/mkdocs-document-dates/main/mkdocs_document_dates/static/config/config.js) |
 
 ### Template Variables
 
@@ -557,14 +555,14 @@ Built-in locales: `en zh zh_TW es fr de ar ja ko ru nl pt`
 
 Addition Method (choose one): 
 
-- In `user.config.js`, refer to [Part 3](https://github.com/jaywhj/mkdocs-document-dates/blob/main/mkdocs_document_dates/static/config/user.config.js) to add it by registering yourself
+- In `config.js`, refer to [Part 3](https://github.com/jaywhj/mkdocs-document-dates/blob/main/mkdocs_document_dates/static/config/config.js) to add it by registering yourself
 - Submit a PR for Inclusion
 
 #### For timeago
 
 When `type: timeago` is set, the timeago.js library is enabled for dynamic time rendering. The built-in locales in `timeago.min.js` only include `en zh`. If you need to load other languages, you can configure it as described below (choose one):
 
-- In `user.config.js`, refer to [Part 2](https://github.com/jaywhj/mkdocs-document-dates/blob/main/mkdocs_document_dates/static/config/user.config.js) to add it by registering yourself
+- In `config.js`, refer to [Part 2](https://github.com/jaywhj/mkdocs-document-dates/blob/main/mkdocs_document_dates/static/config/config.js) to add it by registering yourself
 - In `mkdocs.yml`, configure the full version of `timeago.full.min.js` to reload [all locales](https://github.com/hustcc/timeago.js/tree/master/src/lang)
   ```yaml title="mkdocs.yml"
   extra_javascript:
@@ -666,7 +664,7 @@ def on_page_markdown(self, markdown, page: Page, config, files):
     - Do not call the API function in [Page Events](https://properdocs.org/dev-guide/plugins/#page-events){target="_blank"}, it should only be called **once** in [Global Events](https://properdocs.org/dev-guide/plugins/#global-events){target="_blank"}. For the event lifecycle, please refer to [Events](https://properdocs.org/dev-guide/plugins/#events){target="_blank"}.
     - The API function does not parse markdown content, so the date and author in frontmatter need to be handled separately by you. For example, you can get the date and author configured by the user in frontmatter via `page.meta.xxx` in `on_page_markdown`, like this:
 
-    ``` py
+    ``` py { data-fold="0" }
     ...
 
     def _parse_date(self, value: str | None, default: datetime | None) -> datetime | None:

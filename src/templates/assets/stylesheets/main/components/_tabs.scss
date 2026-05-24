@@ -34,7 +34,7 @@
   overflow: auto;
   line-height: 1.3;
   color: var(--mx-topbar-fg);
-  background-color: var(--mx-topbar-bg);
+  // background-color: var(--mx-topbar-bg);
   box-shadow: 0 px2rem(-1px) 0 inset var(--md-default-fg-color--lightest);
 
   // [print]: Hide tabs
@@ -152,7 +152,6 @@
       transform: translateY(50%);
     }
   }
-}
 
 // ---------------------------------------------------------------------------
 // Overflow dropdown for navigation tabs (mimic Chrome bookmarks behaviour)

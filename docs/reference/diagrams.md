@@ -168,7 +168,7 @@ stateDiagram-v2
 structure of a system by modelling entities as classes and relationships between
 them:
 
-```` markdown title="Class diagram"
+```` markdown { title="Class diagram" data-fold="0" }
 ``` mermaid
 classDiagram
   Person <|-- Student

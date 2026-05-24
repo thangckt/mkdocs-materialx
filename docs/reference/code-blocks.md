@@ -131,7 +131,7 @@ theme:
 
 Code blocks can include a download button that supports blobs, URLs, and local file downloads.
 
-#### Enable Button
+#### Enable button
 
 Add the `data-download` attribute to the fence block header to enable download:
 
@@ -186,7 +186,7 @@ The filename is determined by the following priority:
 
     Or enable the Enhanced Extension below.
 
-#### Enhanced Extension
+#### Enhanced extension
 
 This project upstream dependencies - [attr_list]{target="_blank"} from Python-Markdown and [superfences]{target="_blank"} from PyMdown Extensions, 
 the standard way to add attributes is to **wrap all attributes inside { }**.
@@ -227,6 +227,90 @@ For example, the following formats are all supported:
 
   [attr_list]: https://python-markdown.github.io/extensions/attr_list/
   [superfences]: https://facelessuser.github.io/pymdown-extensions/extensions/superfences/#injecting-classes-ids-and-attributes
+
+### Code collapse & expand
+
+<!-- md:version 10.1.6 -->
+<!-- md:feature -->
+
+When an article contains long code blocks, you can enable automatic code folding to improve the overall reading experience:
+
+``` yaml { hl_lines="3-5" }
+theme:
+  name: materialx
+  code:
+    fold:
+      enabled: true
+```
+
+The default value is `false`, code folding is enabled when set to `true`, and all code blocks exceeding **12** lines (the default threshold) will be automatically folded.
+
+#### Change default threshold
+
+If you want to change the default folding threshold (12 lines), you can configure it via `code.fold.lines`.
+
+``` yaml { hl_lines="6" }
+theme:
+  name: materialx
+  code:
+    fold:
+      enabled: true
+      lines: 15
+```
+
+#### Set individual threshold
+
+If you want to set a custom folding threshold for a specific code block, you can use the `data-fold` attribute in the fence block header:
+
+```` yaml { hl_lines="1" data-fold="10" }
+``` yaml { data-fold="10" }
+theme:
+  admonition:
+    git:
+      icon: simple/git
+      color: '#f34f29'
+    copyright:
+      icon: material/copyright
+      color: '#2b9b9b'
+    heart:
+      icon: octicons/heart-24
+      color: '#9b2b9b'
+    lyrics:
+      icon: material/microphone
+      color: '#2b2b9b'
+    soundcloud:
+      icon: simple/soundcloud
+      color: '#ff7700'
+```
+````
+
+In this case, this code block uses a threshold of 10 lines, while others remain at the default value.
+
+#### Disable folding for specific blocks
+
+If you want to disable folding for a specific code block that exceeds the threshold, set `data-fold` to `0` in its fence block header:
+
+```` yaml { hl_lines="1" data-fold="0" }
+``` yaml { data-fold="0" }
+theme:
+  admonition:
+    git:
+      icon: simple/git
+      color: '#f34f29'
+    copyright:
+      icon: material/copyright
+      color: '#2b9b9b'
+    heart:
+      icon: octicons/heart-24
+      color: '#9b2b9b'
+    lyrics:
+      icon: material/microphone
+      color: '#2b2b9b'
+    soundcloud:
+      icon: simple/soundcloud
+      color: '#ff7700'
+```
+````
 
 ### Code annotations
 

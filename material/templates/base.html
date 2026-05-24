@@ -62,7 +62,7 @@
           <link rel="icon" href="{{ config.theme.favicon | url }}">
         {% endif %}
       {% endif %}
-      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-materialx-10.1.5">
+      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-materialx-10.1.6">
     {% endblock %}
     {% block htmltitle %}
       {% if page.meta and page.meta.title %}
@@ -74,10 +74,10 @@
       {% endif %}
     {% endblock %}
     {% block styles %}
-      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.0269ebfe.min.css' | url }}">
+      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.css' | url }}">
       {% if config.theme.palette %}
         {% set palette = config.theme.palette %}
-        <link rel="stylesheet" href="{{ 'assets/stylesheets/palette.d7242098.min.css' | url }}">
+        <link rel="stylesheet" href="{{ 'assets/stylesheets/palette.a45159b5.min.css' | url }}">
       {% endif %}
     {% endblock %}
     {% include "partials/admonitions.html" %}
@@ -262,6 +262,8 @@
             "clipboard.copy": lang.t("clipboard.copy"),
             "clipboard.copied": lang.t("clipboard.copied"),
             "code.download": lang.t("code.download"),
+            "code.collapse": lang.t("code.collapse"),
+            "code.expand": lang.t("code.expand"),
             "code.select": lang.t("code.select"),
             "search.result.placeholder": lang.t("search.result.placeholder"),
             "search.result.none": lang.t("search.result.none"),
@@ -275,12 +277,13 @@
           "search": "assets/javascripts/workers/search.2c215733.min.js" | url,
           "annotate": _.annotate or none,
           "tags": _.tags or none,
-          "version": _.version or none
+          "version": _.version or none,
+          "code": config.theme.code or none
         } | tojson -}}
       </script>
     {% endblock %}
     {% block scripts %}
-      <script src="{{ 'assets/javascripts/bundle.6427cff6.min.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/bundle.43515f85.min.js' | url }}"></script>
       {% for script in config.extra_javascript %}
         {{ script | script_tag }}
       {% endfor %}

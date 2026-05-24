@@ -36,6 +36,10 @@ extra:
 theme:
   name: materialx
   custom_dir: material/overrides
+  code:
+    fold:
+      enabled: true
+      lines: 15
   features:
     - content.action.edit
     - content.action.view
@@ -177,6 +181,9 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.snippets:
+      base_path:
+        - docs
+        - .
       auto_append:
         - includes/mkdocs.md
   - pymdownx.superfences:

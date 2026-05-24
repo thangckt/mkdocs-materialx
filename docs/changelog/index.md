@@ -6,6 +6,15 @@ icon: material/layers-triple-outline
 
 ## MaterialX
 
+### 10.1.6 <small>May 24, 2026</small> { id="10.1.6" }
+
+- Added automatic collapse for long code blocks, see: [code-collapse-expand](../reference/code-blocks.md#code-collapse-expand){target="_blank"}
+    - Supports global configuration for the line‑count threshold to trigger collapse
+    - Allows individual code blocks to have custom collapse thresholds or disable collapsing entirely
+- Added `co-author` support for git authors
+- Updated date formatting tool to babel
+- Optimized color schemes
+
 ### 10.1.5 <small>May 10, 2026</small> { id="10.1.5" }
 
 - Added Markdown page support for AI agents, see [Markdown for AI agents](../setup/adding-a-git-repository.md#markdown-for-ai-agents){target="_blank"}
@@ -22,7 +31,6 @@ icon: material/layers-triple-outline
     - Manual date configuration for each post is no longer required, and the date plugin no longer needs to be enabled
 - Fixed inconsistent icon rendering sizes across different icon families when customizing Admonitions
 - Fixed the issue where annotation tooltips inside admonitions were clipped
-- Fixed issues arising from incorrect mounting logic for Code Annotations
 - Significantly updated project documentation, including [plugins](../plugins/index.md#graphics-charts), [setup](../setup/adding-document-dates-authors.md), [admonitions](../reference/admonitions.md#custom-icons-and-colors-example-2-create-new-admonitions) and more
 
 ### 10.1.3 <small>April 10, 2026</small> { id="10.1.3" }
@@ -129,12 +137,10 @@ icon: material/layers-triple-outline
 - Fixed: Replace the gap attribute to increase compatibility
 - Fixed: Adjust the style of kbd shortcuts
 - Fixed: Adjust UI shadow effect
-- Fixed: Merge the upstream 9.7.1 update
-- Fixed: Update Doc Site, see [MaterialX](https://jaywhj.github.io/mkdocs-materialx/)
 
 ### 10.0.3 <small>December 11, 2025</small> { id="10.0.3" }
 
-- New: Added Liquid Glass theme, a modern theme identical to Zensical
+- New: Added Liquid Glass theme
 - New: Adjusted the maximum height of the language selection box to display more language options without scrolling
 - New: Added indentation guide lines to the TOC for more intuitive navigation
 - New: Applied the same accent color as the nav to active links in the TOC for clear progress tracking
