@@ -47,6 +47,7 @@ export type Flag =
   | "navigation.instant.preview"       /* Instant preview */
   | "navigation.sections"              /* Section navigation */
   | "navigation.tabs"                  /* Tabs navigation */
+  | "navigation.tabs.header"           /* Tabs navigation (header) */
   | "navigation.tabs.sticky"           /* Tabs navigation (sticky) */
   | "navigation.top"                   /* Back-to-top button */
   | "navigation.tracking"              /* Anchor tracking */
