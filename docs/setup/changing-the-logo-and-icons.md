@@ -4,7 +4,7 @@ icon: octicons/image-24
 
 # Changing the logo and icons
 
-When installing Material for MkDocs, you immediately get access to _over 8,000
+When installing MaterialX for MkDocs, you immediately get access to _over 8,000
 icons_ ready to be used for customization of specific parts of the theme and/or
 when writing your documentation in Markdown. Not enough? You can also add
 [additional icons] with minimal effort.
@@ -103,8 +103,8 @@ in the `docs` folder, to any icon bundled with the theme, or even a
 
     1.  Set up a [custom icon set][additional icons] and reference the icon by
         taking the path of the `*.svg` file starting at the `.icons` folder and
-        dropping the file extension, e.g. for
-        `.icons/bootstrap/envelope-paper.svg`, use `bootstrap/envelope-paper`.
+        dropping the file extension, e.g. for `.icons/bootstrap/envelope-paper.svg`, 
+        use `bootstrap/envelope-paper`.
 
   [Favicon default]: https://github.com/jaywhj/mkdocs-materialx/blob/main/material/templates/assets/images/favicon.png
 

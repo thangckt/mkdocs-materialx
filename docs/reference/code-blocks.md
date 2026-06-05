@@ -6,7 +6,7 @@ status: new
 # Code blocks
 
 Code blocks and examples are an essential part of technical project
-documentation. Material for MkDocs provides different ways to set up syntax
+documentation. MaterialX for MkDocs provides different ways to set up syntax
 highlighting for code blocks, either during build time using [Pygments] or
 during runtime using a JavaScript syntax highlighter.
 
@@ -137,7 +137,7 @@ Add the `data-download` attribute to the fence block header to enable download:
 
 === "Blob"
 
-    ```` yaml { data-download="blob" }
+    ```` yaml { hl_lines="1" data-download="blob" }
     ``` yaml { data-download="blob" }
 
     markdown_extensions:
@@ -147,7 +147,7 @@ Add the `data-download` attribute to the fence block header to enable download:
 
 === "Local File"
 
-    ```` yaml { data-download="../assets/mkdocs.yml" }
+    ```` yaml { hl_lines="1" data-download="../assets/mkdocs.yml" }
     ``` yaml { data-download="assets/xxx.yaml" }
 
     markdown_extensions:
@@ -157,7 +157,7 @@ Add the `data-download` attribute to the fence block header to enable download:
 
 === "URL"
 
-    ```` yaml { data-download="https://jaywhj.github.io/mkdocs-materialx/assets/mkdocs.yml" }
+    ```` yaml { hl_lines="1" data-download="https://jaywhj.github.io/mkdocs-materialx/assets/mkdocs.yml" }
     ``` yaml { data-download="https://example.com/xxx.yaml" }  # (1)!
 
     markdown_extensions:
@@ -243,11 +243,11 @@ theme:
       enabled: true
 ```
 
-The default value is `false`, code folding is enabled when set to `true`, and all code blocks exceeding **12** lines (the default threshold) will be automatically folded.
+The default value is `false`, code folding is enabled when set to `true`, and all code blocks exceeding **15** lines (the default threshold) will be automatically folded.
 
 #### Change default threshold
 
-If you want to change the default folding threshold (12 lines), you can configure it via `code.fold.lines`.
+If you want to change the default folding threshold (15 lines), you can configure it via `code.fold.lines`.
 
 ``` yaml { hl_lines="6" }
 theme:
@@ -611,12 +611,12 @@ The `#!python range()` function is used to generate a sequence of numbers.
 ### Embedding external files
 
 When [Snippets] is enabled, content from other files (including source files)
-can be embedded by using the [`--8<--` notation][Snippets notation] directly
+can be embedded by using the [`-8<-` notation][Snippets notation] directly
 from within a code block:
 
 ```` markdown title="Code block with external content"
 ``` title=".browserslistrc"
-;--8<-- ".browserslistrc"
+;-8<- ".browserslistrc"
 ```
 ````
 
@@ -634,7 +634,7 @@ last 4 years
 
 ### Custom syntax theme
 
-If [Pygments] is used, Material for MkDocs provides the [styles for code blocks]
+If [Pygments] is used, MaterialX for MkDocs provides the [styles for code blocks]
 [colors], which are built with a custom and well-balanced palette that works
 equally well for both [color schemes]:
 

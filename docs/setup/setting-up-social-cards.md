@@ -4,7 +4,7 @@ icon: octicons/share-android-24
 
 # Setting up social cards
 
-Material for MkDocs can automatically create beautiful social cards for your
+MaterialX for MkDocs can automatically create beautiful social cards for your
 documentation, which appear as link previews on social media platforms. You
 can select from several [pre-designed layouts][default layouts] or create
 [custom layouts] to match your unique style and branding.
@@ -544,7 +544,7 @@ mode, as `Regular` is included with all font families.
 
 ### Icons
 
-Authors can leverage the full range of icons that are shipped with Material for
+Authors can leverage the full range of icons that are shipped with MaterialX for
 MkDocs, or even provide custom icons by using theme extension and going through
 the process described in the guide on [additional icons]. Icons can even be
 tinted by using the `color` property:

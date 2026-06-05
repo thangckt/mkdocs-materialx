@@ -66,7 +66,7 @@ class PreviewProcessor(Treeprocessor):
         # is being processed. This seems to be a deliberate design decision, as
         # it is not possible to access the file path of the current page, but
         # it might also be an oversight that is now impossible to fix. However,
-        # since this extension is only useful in the context of Material for
+        # since this extension is only useful in the context of MaterialX for
         # MkDocs, we can assume that the _RelativePathTreeprocessor is always
         # present, telling us the file path of the current page. If that ever
         # changes, we would need to wrap this extension in a plugin, but for
@@ -138,7 +138,7 @@ class PreviewExtension(Extension):
     A Markdown extension to enable instant previews on links.
 
     This extensions allows to automatically add the `data-preview` attribute to
-    internal links matching specific criteria, so Material for MkDocs renders a
+    internal links matching specific criteria, so MaterialX for MkDocs renders a
     nice preview on hover as part of a tooltip. It is the recommended way to
     add previews to links in a programmatic way.
     """

@@ -16,7 +16,7 @@ syntax extensions for technical writing.
 
 ## Supported extensions
 
-The following extensions are all supported by Material for MkDocs and therefore
+The following extensions are all supported by MaterialX for MkDocs and therefore
 strongly recommended. Click on each extension to learn about its purpose and
 configuration:
 
@@ -78,7 +78,7 @@ your documentation project.
 
 ### Minimal configuration
 
-This configuration is a good starting point for when you're using Material for
+This configuration is a good starting point for when you're using MaterialX for
 MkDocs for the first time. The best idea is to explore the [reference], and
 gradually add what you want to use:
 
@@ -98,7 +98,7 @@ markdown_extensions:
 
 ### Recommended configuration
 
-This configuration enables all Markdown-related features of Material for MkDocs
+This configuration enables all Markdown-related features of MaterialX for MkDocs
 and is great for experienced users bootstrapping a new documentation project:
 
 ``` yaml
