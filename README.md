@@ -26,7 +26,7 @@
   </p>
 </details>
 
-**MaterialX** preserves the **rich features** and **stability** of the mkdocs-material project, while delivering **new features** and **broad compatibility**, and will adopt the following brand-new vision and positioning.
+**MaterialX** preserves the **rich features** and **stability** of the mkdocs-material project, while delivering **new features** and **broad compatibility**, and provides ongoing maintenance and updates.
 
 <br />
 
@@ -40,7 +40,7 @@
     - Displays recently updated documents in descending order of update time, with dynamically refreshed list items
     - Supports multiple flexible layout styles (list, detail, grid)
     - Automatically generates document summaries (no manual configuration needed)
-    - Intelligently estimates reading time, supporting all languages (CJK + space-separated languages)
+    - Intelligently estimates reading time, supporting all languages (CJK languages + Space-delimited languages)
 - Refactored the mobile TOC component for seamless NAV and TOC experience on mobile (better interactive experience)
 - Perfectly fixed the issue where swipe gestures would penetrate when the sidebar drawer was active on mobile (prone to accidental operations and poor user experience; unresolved in Zensical and Material)
 - Significantly polished the UX and details on mobile devices

@@ -51,7 +51,7 @@ Therefore, MaterialX will adhere to the following goals and principles:
     - Displays recently updated documents in descending order of update time, with dynamically refreshed list items
     - Supports multiple flexible layout styles (list, detail, grid)
     - Automatically generates document summaries (no manual configuration needed)
-    - Intelligently estimates reading time, supporting all languages (CJK + space-separated languages)
+    - Intelligently estimates reading time, supporting all languages (CJK languages + Space-delimited languages)
 - Refactored the mobile TOC component for seamless NAV and TOC experience on mobile (better interactive experience)
 - Perfectly fixed the issue where swipe gestures would penetrate when the sidebar drawer was active on mobile (prone to accidental operations and poor user experience; unresolved in Zensical and Material)
 - Significantly polished the UX and details on mobile devices
@@ -64,13 +64,15 @@ Therefore, MaterialX will adhere to the following goals and principles:
 
 ## Quick Start
 
-Installation:
+<div class="steps" markdown>
+
+1. Installation:
 
 ``` sh
 pip install mkdocs-materialx
 ```
 
-Configure `materialx` theme to mkdocs.yml:
+2. Configure `materialx` theme to mkdocs.yml:
 
 ``` yaml
 theme:
@@ -82,7 +84,7 @@ theme:
     - The theme name is `materialx`, not material. Everything else is the same as when using material.
     - To lower the barrier for users, MaterialX is designed to share the same package name with `mkdocs-material`, you may treat MaterialX and `mkdocs-material` as different versions of the same project, only one version can be installed in a single environment, and the later‑installed package will overwrite the earlier one. Since `mkdocs-material` will soon be deprecated, coexistence was not considered.
 
-Start a live preview server with the following command for automatic open and reload:
+3. Start a live preview server with the following command for automatic open and reload:
 
 === "MkDocs"
 
@@ -95,3 +97,4 @@ Start a live preview server with the following command for automatic open and re
     ```
     properdocs serve -o
     ```
+</div>
