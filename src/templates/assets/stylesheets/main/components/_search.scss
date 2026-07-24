@@ -409,7 +409,7 @@
     font-size: px2rem(18px);
     line-height: 1;
     color: var(--mx-topbar-fg-muted);
-    white-space: nowrap;
+    white-space: pre;
     pointer-events: none;
     opacity: 0;
     transition: opacity 50ms;
@@ -573,6 +573,24 @@
     // Adjust spacing on last child of last link
     &:last-child p:last-child {
       margin-bottom: px2rem(12px);
+    }
+  }
+
+  // Balance spacing inside Pagefind match links
+  &--pagefind &__item {
+    > .md-search-result__link:not(:first-child),
+    > .md-search-result__more > .md-search-result__link {
+      .md-search-result__article {
+        padding-bottom: px2rem(8px);
+      }
+    }
+
+    // Add space after each Pagefind page result
+    > .md-search-result__link:last-child,
+    > .md-search-result__more:last-child > .md-search-result__link:last-child {
+      .md-search-result__article {
+        padding-bottom: px2rem(12px);
+      }
     }
   }
 
