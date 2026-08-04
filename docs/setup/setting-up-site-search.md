@@ -7,16 +7,11 @@ search:
 
 # Setting up site search
 
-MaterialX for MkDocs `10.2.0` completely redesigns the built-in search system.
-The new implementation uses interchangeable search providers, **improves index
-generation and result quality**, and offers more flexible configuration for
-large and multilingual documentation sites. It also brings significantly
-more specialized support for Chinese and Japanese content.
+MaterialX `10.2.0` fully refactors the search module with a brand-new architecture, greatly improving **search quality** and **indexing efficiency**.
 
-[Pagefind]{target="_blank"} is the default provider. Its chunked, on-demand index is the best
-choice for sites served over HTTP and scales efficiently as a site grows.
-[Lunr]{target="_blank"} remains available for documentation that must also work [offline]{target="_blank"} when
-opened directly from `file://`.
+It supports multi-provider mode, chunked indexing, on-demand loading, index compression, multilingual search and cross-domain search. It is suitable for various complex scenarios and large-scale sites, and can handle sites with more than 100,000 pages.
+
+[Pagefind]{target="_blank"} is the default provider. You may switch back to the original [Lunr]{target="_blank"} when using it in an [offline]{target="_blank"} environment (opened via the `file://` protocol).
 
   [Pagefind]: https://pagefind.app/
   [Lunr]: https://lunrjs.com/
@@ -95,7 +90,7 @@ yields ^^search suggestions^^ as a suggestion.
 <!-- md:flag experimental -->
 
 When search highlighting is enabled and a user follows a search result,
-MaterialX for MkDocs highlights all occurrences of the search terms on the
+MaterialX highlights all occurrences of the search terms on the
 destination page. This feature works with both providers:
 
 ``` yaml
