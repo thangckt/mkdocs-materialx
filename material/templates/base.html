@@ -62,7 +62,7 @@
           <link rel="icon" href="{{ config.theme.favicon | url }}">
         {% endif %}
       {% endif %}
-      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-materialx-10.2.0">
+      <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-materialx-10.2.2">
     {% endblock %}
     {% block htmltitle %}
       {% if page.meta and page.meta.title %}
@@ -74,7 +74,7 @@
       {% endif %}
     {% endblock %}
     {% block styles %}
-      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.5d6320cd.min.css' | url }}">
+      <link rel="stylesheet" href="{{ 'assets/stylesheets/main.74d6c0ad.min.css' | url }}">
       {% if config.theme.palette %}
         {% set palette = config.theme.palette %}
         <link rel="stylesheet" href="{{ 'assets/stylesheets/palette.a45159b5.min.css' | url }}">
@@ -311,7 +311,7 @@
       </script>
     {% endblock %}
     {% block scripts %}
-      <script src="{{ 'assets/javascripts/bundle.d026e48d.min.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/bundle.574b5c94.min.js' | url }}"></script>
       {% for script in config.extra_javascript %}
         {{ script | script_tag }}
       {% endfor %}
